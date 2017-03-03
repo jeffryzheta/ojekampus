@@ -5,26 +5,29 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class User
+public class Pelanggan
 {
     // instance variables - replace the example below with your own
-   protected int id; 
-   protected String nama; 
+   private static int id; 
+   private static String nama; 
    
-   public User(int id, String nama){ 
+   public Pelanggan(){ 
    
        
     } 
     public int getID() { 
-        return 0; 
+        return id; 
     }
     public String getNama() { 
-        return ""; 
+        return nama; 
     } 
     public void setID(int id) { 
-       
+       this.id=id;
     } 
     public void setNama(String nama){ 
-       
+       this.nama=nama;
     } 
+    public void printData(){ 
+       
+    }
 }

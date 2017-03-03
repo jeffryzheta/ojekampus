@@ -8,9 +8,11 @@
 public class DatabasePesanan
 {
     // instance variables - replace the example below with your own
-    private static String[] listPesanan;
+    private static Pesanan list_pesanan;
+    public DatabasePesanan() {
     
-    public boolean addPesanan(Pesanan Pesan){
+    } 
+    public static boolean addPesanan(Pesanan Pesan){
     return false;
     
     }
@@ -18,26 +20,12 @@ public class DatabasePesanan
     public static boolean hapusPesanan(Pesanan pesan){ 
     return false;
     }
-    
-    public static boolean hapusPesanan(Pelanggan pengguna){ 
-    return false;    
-    }
-    
-    public static Pesanan getPesnanan(Pelanggan pengguna){ 
-    return "";   
+   
+    public static Pesanan getPesnanan(){ 
+    return list_pesanan;   
     } 
     
-    public static String[] getDatatbase(){ 
-    return "";   
-    } 
-    public static void pesananDibatalkan(Pesanan pesan){ 
-        
-    } 
-    
-    public static void pesananDibatalkan(Pelanggan pengguna){ 
-        
-    } 
-
+   
   
 
     

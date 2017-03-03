@@ -7,38 +7,40 @@
  */
 public class DatabaseUser
 {
-    private static String[] pelanggan_database;
-    private static String[] ojek_database; 
-    private static int id_ojek_terakhir; 
-    private static int id_pelanggan_terakhir; 
-    public static boolean addPelanggan(Pelanggan baru) {
-        
+    private static Pelanggan pelanggan_database;
+    private static Ojek ojek_database; 
+    private static int id_ojek_terakhir=1; 
+    private static int id_pelanggan_terakhir=1; 
+    public DatabaseUser() {
+    
     } 
-    public static boolean removePelanggan(Pelanggan baru) {
+    
+    public static boolean addPelanggan(Pelanggan baru) {
+        return false;
+    } 
+    public static boolean removePelanggan(int id) {
         return false; 
     } 
     public static boolean addOjek(Ojek baru) {
         return false; 
     } 
-    public static int removeOjek(int id) {
-        return 0;
+    public static boolean removeOjek(int id) {
+        return false;
     } 
     public static int getIDOjekTerakhir(){
-        return 0; 
+        return id_ojek_terakhir; 
     } 
     public static int getIDPelangganTerakhir(){
-        return 0;
+        return id_pelanggan_terakhir;
+
     }
-    public static Ojek getUserOjek(int id) { 
-        return 0; 
-    } 
-    public static String[] getOjekDatabase() {
-        return ""; 
+    public static Ojek getUserOjek() 
+    { return ojek_database;
     }
-    public static Pelanggan getUserPelanggan(int id){ 
-        return ""; 
+    public static Pelanggan getUserPelanggan(){ 
+        
+        return pelanggan_database;
     } 
-    public static String[] getPelangganDatabase() { 
-        return ""; 
-    } 
+        
 }
+   

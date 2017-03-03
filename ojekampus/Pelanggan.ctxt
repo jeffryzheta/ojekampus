@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=id\ nama
-comment0.target=User(int,\ java.lang.String)
+comment0.params=
+comment0.target=Pelanggan()
 comment1.params=
 comment1.target=int\ getID()
 comment2.params=
@@ -9,4 +9,6 @@ comment3.params=id
 comment3.target=void\ setID(int)
 comment4.params=nama
 comment4.target=void\ setNama(java.lang.String)
-numComments=5
+comment5.params=
+comment5.target=void\ printData()
+numComments=6

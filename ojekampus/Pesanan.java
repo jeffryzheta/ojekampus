@@ -8,45 +8,39 @@
 public class Pesanan
 {
     // instance variables - replace the example below with your own
-   private Ojek pelayan;
+   private Ojek pelayan=null;
    private Pelanggan pengguna; 
    private String pelanggan_awal;
    private String pelanggan_akhir;
    private double biaya;
-   private TipeLayanan layanan;
+   private String layanan;
    private Lokasi lokasi_awal;
    private Lokasi lokasi_akhir;
-   private boolean diproses;
-   private boolean diabatalkan; 
+   private boolean diproses=false;
+   private boolean diabatalkan=false; 
    
-   public Pesanan(){} 
+   public Pesanan(){
+    
+    
+    } 
    public boolean getStatusPesanan() {
     return false;
     } 
-   public void pesananDiambil(Ojek pelayan) {
-    
+    public Pelanggan getPelanggan() { 
+      return pengguna;  
     }
-   public Pelanggan getPelanggan() {
-   return "";    
-       
-    }
-   public Ojek getOjek() {
-   return "";    
-       
-       
+    public Ojek getOjek() { 
+    return null; 
     } 
-    public void pesananDibatalkan() { 
-        
-        
-    } 
+
     public Lokasi getLokasiAwal() {
-    return "";    
+    return lokasi_awal;    
         
     }
     public Lokasi getLokasiAkhir() { 
-    return "";    
+    return lokasi_akhir;    
     } 
-    public tipeLayanan getTipeLayanan() { 
+    public String getTipeLayanan() { 
      return "";   
         
     } 
@@ -57,10 +51,10 @@ public class Pesanan
      return "";   
     } 
     public double getBiaya() { 
-     return 0;   
+     return biaya;   
     } 
-    public String toString() { 
-     return "";   
+    public void printData() { 
+  
     } 
     
    
