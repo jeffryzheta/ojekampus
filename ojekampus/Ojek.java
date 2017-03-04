@@ -13,7 +13,11 @@ public class Ojek
   private static int id;
   private static String nama;
  
-  public Ojek(){
+  public Ojek(int id, String nama, Lokasi posisi_sekarang){
+      this.id=id;
+      this.nama=nama;
+      this.posisiSekarang=posisiSekarang;
+      
     }
   public void setID(int id) {
      this.id=id;
@@ -42,6 +46,9 @@ public class Ojek
   public String getStatus() {
     return status;} 
   public void printData() {
+      System.out.println("Nama Ojek : "+ getNama());
+      System.out.println("ID Ojek : "+ getID());
+      System.out.println("Status Ojek : "+ getStatus());
     } 
   
 }

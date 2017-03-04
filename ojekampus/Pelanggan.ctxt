@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Pelanggan()
+comment0.params=id\ nama
+comment0.target=Pelanggan(int,\ java.lang.String)
 comment1.params=
 comment1.target=int\ getID()
 comment2.params=

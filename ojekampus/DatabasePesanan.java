@@ -12,21 +12,22 @@ public class DatabasePesanan
     public DatabasePesanan() {
     
     } 
-    public static boolean addPesanan(Pesanan Pesan){
-    return false;
+    public static boolean addPesanan(Pesanan pesan){
+        list_pesanan = pesan;
+        System.out.println("pemasukan pemesanan :"+ list_pesanan +" kedalam list berhasil dilakukan"); 
+    return true;
     
     }
     
     public static boolean hapusPesanan(Pesanan pesan){ 
-    return false;
+        pesan = list_pesanan;
+        list_pesanan=null;
+        System.out.println("pehapusan pemesanan :"+ list_pesanan +" dari list berhasil dilakukan");
+    return true;
     }
    
-    public static Pesanan getPesnanan(){ 
+    public static Pesanan getPesanan(){ 
     return list_pesanan;   
     } 
-    
-   
-  
-
-    
+        
 }

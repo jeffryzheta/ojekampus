@@ -19,9 +19,14 @@ public class Pesanan
    private boolean diproses=false;
    private boolean diabatalkan=false; 
    
-   public Pesanan(){
-    
-    
+   public Pesanan(Pelanggan pengguna,String layanan,Lokasi lokasi_awal,
+   Lokasi lokasi_akhir, String pelanggan_awal, String pelanggan_akhir, double biaya){
+    this.pengguna=pengguna; 
+    this.layanan=layanan;
+    this.lokasi_akhir=lokasi_akhir;
+    this.lokasi_awal=lokasi_awal;
+    this.pelanggan_awal=pelanggan_awal;
+    this.biaya=biaya;
     } 
    public boolean getStatusPesanan() {
     return false;
@@ -54,7 +59,9 @@ public class Pesanan
      return biaya;   
     } 
     public void printData() { 
-  
+        System.out.println("Lokasi Pelanggan awal : "+ getLokasiAwal());
+        System.out.println("Lokasi Pelanggan akhir : "+ getLokasiAkhir());
+        System.out.println("Tipe Layanan : "+ getTipeLayanan());
     } 
     
    

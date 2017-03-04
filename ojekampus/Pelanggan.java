@@ -10,10 +10,10 @@ public class Pelanggan
     // instance variables - replace the example below with your own
    private static int id; 
    private static String nama; 
-   
-   public Pelanggan(){ 
-   
-       
+  // String temp;
+   public Pelanggan(int id, String nama){ 
+   this.id=id;
+   this.nama=nama;
     } 
     public int getID() { 
         return id; 
@@ -28,6 +28,9 @@ public class Pelanggan
        this.nama=nama;
     } 
     public void printData(){ 
-       
+    //temp = integer.toString(id.getID());
+    System.out.println("ID pelanggan : "+ getID());
+    System.out.println("Nama Pelanggan : "+ getNama());
     }
+   
 }

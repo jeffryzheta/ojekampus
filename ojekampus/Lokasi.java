@@ -12,7 +12,7 @@ public class Lokasi
    private static String nama_lokasi; 
    private static String keterangan_lokasi;
    
-   public Lokasi(){
+   public Lokasi(String nama_lokasi, double x, double y, String keterangan_lokasi){
     
     }
     

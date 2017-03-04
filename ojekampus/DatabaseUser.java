@@ -11,21 +11,27 @@ public class DatabaseUser
     private static Ojek ojek_database; 
     private static int id_ojek_terakhir=1; 
     private static int id_pelanggan_terakhir=1; 
-    public DatabaseUser() {
+    public DatabaseUser(/*Pelanggan baru*/) {
     
     } 
     
     public static boolean addPelanggan(Pelanggan baru) {
-        return false;
+        pelanggan_database = baru; 
+         System.out.println("Penambahan Pelanggan kedalam database berhasil dilakukan");
+        return true;
     } 
     public static boolean removePelanggan(int id) {
-        return false; 
+        pelanggan_database=null;
+        return true; 
     } 
     public static boolean addOjek(Ojek baru) {
-        return false; 
+        ojek_database = baru; 
+        System.out.println("Penambahan Ojek kedalam database berhasil dilakukan");
+        return true; 
     } 
     public static boolean removeOjek(int id) {
-        return false;
+        ojek_database=null;
+        return true;
     } 
     public static int getIDOjekTerakhir(){
         return id_ojek_terakhir; 
