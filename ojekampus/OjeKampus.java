@@ -1,46 +1,63 @@
 
 /**
  * Write a description of class OjeKampus here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Class ini core dari program, digunakan untuk banyak hal
+ * di single line command akan di jelaskan 
+ * @author Jeffry Kurniawan ZHeta
+ * @version 3/4/2017
  */
 public class OjeKampus
 {
-    // instance variables - replace the example below with your own
-    public OjeKampus()
+/**
+ * @constructor tidak berisi apa-apa 
+ * @param tidak ada menggunakan param karena tidak diperlukan 
+ * @return tidak ada return value karen tidak diperlukan 
+ * 
+ */  
+public OjeKampus()
     {
         // initialise instance variables
         
     }
-public static void main(String args[]){ 
-    DatabaseUser ojek_data = new DatabaseUser();
-    Lokasi ojek_lokasi = new Lokasi("Kost Jawa",14, 06, "Kukusan Teknik UI");
-    Ojek ojek_jeffry = new Ojek(ojek_data.getIDOjekTerakhir(), "Jeffry", ojek_lokasi);
+/** 
+ * @param adalah String args[] digunakan untuk menunjukkan 
+ * argument dari tipe data String yang diterima Java app jika 
+ * dijalankan.
+ * @return tidak digunakan karena dalam bentuk void 
+ */
+    public static void main(String args[]){ 
+    DatabaseUser ojek_data = new DatabaseUser(); //ini untuk menambahkan data ojek kedalam DatavaseUser
+    Lokasi ojek_lokasi = new Lokasi("Kost Jawa",14, 06, "Kukusan Teknik UI"); //menambahkan lokasi yang diinginkan ke dalam ojek_lokasi 
+                                                                              //dengan parameter yang sesuai dengan class Lokasi               
+    Ojek ojek_jeffry = new Ojek(ojek_data.getIDOjekTerakhir(), "Jeffry", ojek_lokasi); //digunakan untuk memanggil class Ojek sesuai dengan parameternya
+                                                                                       // dan memasukkan datanya ke dalam ojek_jeffry 
+    Pelanggan p_zheta = new Pelanggan(ojek_data.getIDPelangganTerakhir(), "Zheta"); //digunakan untuk memanggil class pelanggan dan memasukkan data 
+                                                                                    //kedalam p_zheta
     
-    Pelanggan p_zheta = new Pelanggan(ojek_data.getIDPelangganTerakhir(), "Zheta");
+    Lokasi per_zheta_awal = new Lokasi("Kost Pinky",5,3,"Kukusan Teknik UI"); // digunakan untuk menambahkan lokasi awal ke dalam per_zheta_awal dengan memanggil class Lokasi
     
-    Lokasi per_zheta_awal = new Lokasi("Kost Pinky",5,3,"Kukusan Teknik UI");
+    Lokasi per_zheta_akhir = new Lokasi("Es Pocong",2,0, "Jalan Margonda"); //digunakan untuk menambahkan lokasi akhir ke dalam per_zheta_akhir dengan memanggil class Lokasi
     
-    Lokasi per_zheta_akhir = new Lokasi("Es Pocong",2,0, "Jalan Margonda");
+    Pesanan pes_zheta = new Pesanan(p_zheta,"Antar Jemput", per_zheta_awal, per_zheta_akhir,"Nindya", "Valda", 15000); //memanggil class pesanan untuk menambah pesanan baru
     
-    Pesanan pes_zheta = new Pesanan(p_zheta,"Antar Jemput", per_zheta_awal, per_zheta_akhir,"Nindya", "Valda", 15000);
+    ojek_data.addOjek(ojek_jeffry); //menambahkan ojek_jeffry yang sesuai dengan parameter addOjek ke dalam database (ojek baru)
+   
+    ojek_data.addPelanggan(p_zheta);//menambahkan p_zheta yang sesuai dengan parameter addPelanggan ke dalam database (pelanggan baru)
+    DatabasePesanan pesanan_data = new DatabasePesanan(); //menginisiasi database baru jika ada pesanan_data 
+    pesanan_data.addPesanan(pes_zheta);//menambahkan pes_zheta sebagai pesanan baru ke dalam database 
     
-    ojek_data.addOjek(ojek_jeffry);
-    ojek_data.addPelanggan(p_zheta);
-    DatabasePesanan pesanan_data = new DatabasePesanan();
-    pesanan_data.addPesanan(pes_zheta);
+    ojek_jeffry.printData(); //menampilkan isi ojek_jeffry 
     
-    ojek_jeffry.printData();
-    p_zheta.printData();
+    p_zheta.printData();//menampilkan pelanggan zheta
     
-    ojek_jeffry.setNama("Zheta");
-    p_zheta.setNama("Jeffry");
+    ojek_jeffry.setNama("Zheta"); //mengatur nama ojek jeffry
     
-    ojek_jeffry.printData();
-    p_zheta.printData();
+    p_zheta.setNama("Jeffry"); //mengatur nama pelanggan 
     
-    pes_zheta.printData(); 
+    ojek_jeffry.printData(); //menampilkan ojek_jeffry 
+    p_zheta.printData();//menampillkan pelanggan zheta
+    
+    pes_zheta.printData();  //menampilkan pesana zheta
     /*  String temp;
     Pelanggan pelanggan1 = new Pelanggan();
     pelanggan1.setID(90);
