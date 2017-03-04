@@ -15,7 +15,7 @@ public class DatabaseUser
     * @param baru yang diambil dari class Pelanggan untuk ditambahkan 
     * @return tidak ada 
     */
-    public DatabaseUser(Pelanggan baru) {
+    public DatabaseUser(/*Pelanggan baru*/) {
     
     } 
     /**

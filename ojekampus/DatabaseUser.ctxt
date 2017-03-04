@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=baru
-comment0.target=DatabaseUser(Pelanggan)
+comment0.params=
+comment0.target=DatabaseUser()
 comment0.text=\r\n\ @param\ baru\ yang\ diambil\ dari\ class\ Pelanggan\ untuk\ ditambahkan\ \r\n\ @return\ tidak\ ada\ \r\n
 comment1.params=baru
 comment1.target=boolean\ addPelanggan(Pelanggan)
