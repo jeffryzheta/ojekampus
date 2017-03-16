@@ -17,20 +17,19 @@ public class Pesanan
    private Lokasi lokasi_awal;
    private Lokasi lokasi_akhir;
    private boolean diproses=false;
-   private boolean diabatalkan=false; 
+   private boolean selesai=false; 
    
     /**
   * @param pengguna untuk mendapatkan pengguna yang sedang memakai jasa Ojek 
   * @param layanan untuk melihat tipe layanan saat ini 
   * @param lokasi_akhir untuk menampilkan lokasi akhir 
-  * @param  lokasi_awa; untuk melihat lokasi akhir 
+  * @param  lokasi_awal; untuk melihat lokasi akhir 
   * @param biaya untuk mendapatkan nilai biaya saat ini 
   * yang akan dikeluarkan oleh user. 
-  * @return tidak digunakan return value 
+  * @return nothing 
   * 
   */
-   public Pesanan(Pelanggan pengguna,String layanan,Lokasi lokasi_awal,
-   Lokasi lokasi_akhir, String pelanggan_awal, String pelanggan_akhir, double biaya){
+   public Pesanan(Pelanggan pengguna,String layanan,Lokasi lokasi_awal, Lokasi lokasi_akhir, String pelanggan_awal, String pelanggan_akhir, double biaya){
    // instance variables - replace the example below with your own
     this.pengguna=pengguna; 
     this.layanan=layanan;
@@ -39,33 +38,57 @@ public class Pesanan
     this.pelanggan_awal=pelanggan_awal;
     this.biaya=biaya;
     } 
-    /**
-  * @param tidak ada parameter yang dipakai
-  * @return bernilai false atau true karen boolean, ini untuk melihat status dari pesanan, apakah sudah di ambil atau belum
-  * 
-  */
- public boolean getStatusPesanan() {
-    return false;
-    } 
+    public Ojek getPelayan(){
+        return pelayan;
+    }
+        
   /**
   * @param tidak digunakan karena tidak diperlukan 
   * @return mereturn nilai pengguna yang sudah didapatkan ketika melakukan getPelanggan pada class pelanggan
   * 
   */
-    public Pelanggan getPelanggan() { 
+    public Pelanggan getPelanggan(){  
       return pengguna;  
     }
-     /**
-  * @param tidak ada 
-  * @return null untuk menjaga agar getOjek tidak terus-menerus bertambah dari class Ojek
+    
+      /**
+  * @param nothing
+  * @return "" jika tidak ada pengguna Awal yang dimasukkan 
   * 
   */
-    public Ojek getOjek() { 
-    return null; 
+    public String getPenggunaAwal() {
+     return pelanggan_awal;   
     } 
-
-     /**
-  * @param tidak ada 
+      /**
+  * @param nothing
+  * @return "" jika tidak diterima penggunaAkhir
+  * 
+  */
+    public String getPenggunaAkhir() { 
+     return pelanggan_akhir;   
+    } 
+  
+          /**
+  * @param nothing
+  * @return biaya ini akan didapat dari nilai yang dimasukkan pada ojeKampus
+  * 
+  */
+    public double getBiaya() { 
+     return biaya;   
+    } 
+    
+      /**
+  * @param nothing
+  * @return layanan karena belum ada tipe layanan yang di masukkan 
+  * 
+  */
+    public String getTipeLayanan() { 
+     return layanan;   
+        
+    } 
+    
+       /**
+  * @param nothing
   * @return didapat dari class Lokasi dengan getLokasiAwal dan lokasi tersebut di save di dalam lokasi_awal
   * 
   */
@@ -74,54 +97,98 @@ public class Pesanan
         
     }
      /**
-  * @param tidak ada 
+  * @param nothing
   * @return didapat dari class Lokasi dengan getLokasiAkhir dan lokasi tersebut di save di dalam lokasi_akhir
   * 
   */
     public Lokasi getLokasiAkhir() { 
     return lokasi_akhir;    
     } 
-      /**
-  * @param tidak ada 
-  * @return "" karena belum ada tipe layanan yang di masukkan 
+    
+    /**
+  * @param nothing
+  * @return bernilai false atau true karen boolean, ini untuk melihat status dari pesanan, apakah sudah di ambil atau belum
   * 
   */
-    public String getTipeLayanan() { 
-     return "";   
+ public boolean getDiproses() {
+    return diproses;
+    } 
+    
+    /**
+  * @param nothing
+  * @return bernilai false atau true karen boolean, ini untuk melihat status dari pesanan, apakah sudah di ambil atau belum
+  * 
+  */
+ public boolean getSelesai() {
+    return selesai;
+    } 
+    
+   public void setPelayan(Ojek pelayan){
+       this.pelayan=pelayan; 
+       
+    } 
+    
+    public void setPelanggan(Pelanggan pengguna) {
+        
+        this.pengguna=pengguna;
         
     } 
-      /**
-  * @param tidak ada 
-  * @return "" jika tidak ada pengguna Awal yang dimasukkan 
+    
+        public void setPenggunaAwal(String pelanggan_awal) {
+        
+        this.pelanggan_awal =pelanggan_awal;
+    } 
+        public void setPenggunaAkhir(String pelanggan_akhir) {
+        
+        this.pelanggan_akhir =pelanggan_akhir;
+    } 
+        public void setBiaya(double biaya) {
+        
+        this.biaya = biaya;
+    } 
+     public void setTipeLayanan(TipeLayanan layanan){
+        
+      //this.layanan = layanan;
+    } 
+        public void setLokasiAwal(Lokasi lokasi_awal) {
+        this.lokasi_awal=lokasi_awal;
+        
+    } 
+    public void setLokasiAkhir(Lokasi lokasi_akhir) {
+        this.lokasi_akhir=lokasi_akhir;
+        
+    }
+    public void setStatusDiproses(Boolean diproses) {
+       
+        this.diproses=diproses;
+        
+    } 
+    public void setStatusSelesai(Boolean selesai) {
+        
+        this.selesai=selesai;
+    }    
+
+     /**
+  * @param nothing
+  * @return null untuk menjaga agar getOjek tidak terus-menerus bertambah dari class Ojek
   * 
   */
-    public String getPenggunaAwal() {
-     return "";   
+    public Ojek getOjek() { 
+    return pelayan; 
     } 
+
+  
+
+    
+
       /**
-  * @param tidak ada 
-  * @return "" jika tidak diterima penggunaAkhir
-  * 
-  */
-    public String getPenggunaAkhir() { 
-     return "";   
-    } 
-      /**
-  * @param tidak ada 
-  * @return biaya ini akan didapat dari nilai yang dimasukkan pada ojeKampus
-  * 
-  */
-    public double getBiaya() { 
-     return biaya;   
-    } 
-      /**
-  * @param tidak ada 
-  * @return tidak ada karena void
+  * @param nothing
+  * @return nothing
   * 
   */
     public void printData() { 
-        System.out.println("Lokasi Pelanggan awal : "+ getLokasiAwal());
-        System.out.println("Lokasi Pelanggan akhir : "+ getLokasiAkhir());
+        System.out.println("Lokasi Pelanggan awal : "+ lokasi_awal.getNama());
+        System.out.println("Lokasi Pelanggan akhir : "+ lokasi_akhir.getNama());
         System.out.println("Tipe Layanan : "+ getTipeLayanan());
     } 
     

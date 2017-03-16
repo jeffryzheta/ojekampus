@@ -9,9 +9,8 @@
 public class OjeKampus
 {
 /**
- * @constructor tidak berisi apa-apa 
- * @param tidak ada menggunakan param karena tidak diperlukan 
- * @return tidak ada return value karen tidak diperlukan 
+ * @param nothing
+ * @return nothing
  * 
  */  
 public OjeKampus()
@@ -38,6 +37,7 @@ public OjeKampus()
     
     Lokasi per_zheta_akhir = new Lokasi("Es Pocong",2,0, "Jalan Margonda"); //digunakan untuk menambahkan lokasi akhir ke dalam per_zheta_akhir dengan memanggil class Lokasi
     
+  
     Pesanan pes_zheta = new Pesanan(p_zheta,"Antar Jemput", per_zheta_awal, per_zheta_akhir,"Nindya", "Valda", 15000); //memanggil class pesanan untuk menambah pesanan baru
     
     ojek_data.addOjek(ojek_jeffry); //menambahkan ojek_jeffry yang sesuai dengan parameter addOjek ke dalam database (ojek baru)

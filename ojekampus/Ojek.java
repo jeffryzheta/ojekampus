@@ -1,13 +1,13 @@
 
 /**
- * Write a description of class Ojek here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Write a description of class OjeKampus here.
+ * Class ini untuk mengisi databaseUser dari class lain   
+ * @author Jeffry Kurniawan Zheta
+ * @version 3/4/2017
  */
 public class Ojek
 {
-  private static String status="idle";
+  private static StatusOjek status=StatusOjek.Idle;
   private static Lokasi posisiSekarang;
   private static Pesanan pesanan_sekarang=null;
   private static int id;
@@ -17,7 +17,7 @@ public class Ojek
     * @param id yang telah di set
     * @param nama yang telah diset 
     * @param posisi_sekarang yang telah di set
-    * @return tidak ada 
+    * @return nothing 
     */
   public Ojek(int id, String nama, Lokasi posisi_sekarang){
       this.id=id;
@@ -27,77 +27,77 @@ public class Ojek
     }
      /**
     * @param id yang telah di set 
-    * @return tidak ada 
+    * @return nothing 
     */
   public void setID(int id) {
      this.id=id;
     }
      /**
     * @param nama yang telah di set 
-    * @return tidak ada 
+    * @return nothing 
     */
   public void setNama(String nama){ 
       this.nama=nama;
     } 
      /**
     * @param pesan yang telah di set 
-    * @return tidak ada 
+    * @return nothing 
     */
   public void setPesanan(Pesanan pesan) {
      pesanan_sekarang=pesan;
     } 
      /**
     * @param sekarang yang telah di set 
-    * @return tidak ada
+    * @return nothing
     */
   public void setPosisi(Lokasi sekarang){ 
     posisiSekarang=sekarang;
     } 
      /**
     * @param status saat ini 
-    * @return tidak ada 
+    * @return nothing 
     */
-  public void setStatus(String status){
-    this.status="idle";
+  public void setStatus(StatusOjek status){
+    this.status=status;
 } 
  /**
-    * @param tidak ada
+    * @param nothing
     * @return 0 yang tidak berisi 
     */
   public int getID(){ 
-    return 0;}
+    return id;}
      /**
-    * @param tidak ada
+    * @param nothing
     * @return nama yang sduah diisi 
     */
   public String getNama(){
     return nama; }
      /**
     * @param tidak da
-    * @return null yang berarti tidak ada 
+    * @return null yang berarti tidak ada
     */
   public Pesanan getPesanan() {
-   return null;}
+   return pesanan_sekarang;}
     /**
-    * @param tidak ada 
+    * @param nothing 
     * @return pisisiSekarang
     */
   public Lokasi getPosisi() {
     return posisiSekarang;}
      /**
-    * @param tidak ada 
+    * @param nothing 
     * @return status yang berisi status saat ini 
     */
-  public String getStatus() {
+  public StatusOjek getStatus() {
     return status;}
      /**
-    * @param tidak ada 
-    * @return tidak ada 
+    * @param nothing 
+    * @return nothing 
     */
   public void printData() {
-      System.out.println("Nama Ojek : "+ getNama());
-      System.out.println("ID Ojek : "+ getID());
-      System.out.println("Status Ojek : "+ getStatus());
+      System.out.println("Nama Ojek : "+ nama);
+      System.out.println("ID Ojek : "+ id);
+      System.out.println("Status Ojek : "+ status);
     } 
   
 }

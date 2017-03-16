@@ -12,7 +12,7 @@ public class Pelanggan
   /**
     * @param id digunakan untuk mengassign id dari pelanggan 
     * @param nama berisi nama pelanggan 
-    * @return tidak ada 
+    * @return nothing 
     */
    public Pelanggan(int id, String nama){ 
     // instance variables - replace the example below with your own
@@ -20,14 +20,14 @@ public class Pelanggan
    this.nama=nama;
     } 
     /**
-    * @param tidak ada 
+    * @param nothing 
     * @return id yang sudah dimasukkan dari class lain 
     */
     public int getID() { 
         return id; 
     }
      /**
-    * @param tidak ada 
+    * @param nothing 
     * @return nama yang sudah dimasukkan dari class lain atau class ini 
     */
     public String getNama() { 
@@ -35,21 +35,21 @@ public class Pelanggan
     } 
     /**
     * @param id yang sudah di set 
-    * @return tidak ada  
+    * @return nothing  
     */
     public void setID(int id) { 
        this.id=id;
     } 
      /**
     * @param nama yang telah dimasukkan 
-    * @return tidak ada
+    * @return nothing
     */
     public void setNama(String nama){ 
        this.nama=nama;
     } 
      /**
-    * @param tidak ada 
-    * @return tidak ada
+    * @param nothing 
+    * @return nothing
     */
     public void printData(){ 
     //temp = integer.toString(id.getID());

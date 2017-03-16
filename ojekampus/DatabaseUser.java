@@ -13,7 +13,7 @@ public class DatabaseUser
     private static int id_pelanggan_terakhir=1; 
    /**
     * @param baru yang diambil dari class Pelanggan untuk ditambahkan 
-    * @return tidak ada 
+    * @return nothing
     */
     public DatabaseUser(/*Pelanggan baru*/) {
     
@@ -54,14 +54,14 @@ public class DatabaseUser
         return true;
     } 
     /**
-    * @param tidak ada
+    * @param nothing
     * @return id yang terisi pada ojek yang terakhir
     */
     public static int getIDOjekTerakhir(){
         return id_ojek_terakhir; 
     } 
     /**
-    * @param tidak ada
+    * @param nothing
     * @return id yang terisi pada pelanggan yang terakhir
     */
     public static int getIDPelangganTerakhir(){
@@ -69,14 +69,14 @@ public class DatabaseUser
 
     }
     /**
-    * @param tidak ada
+    * @param nothing
     * @return data dalam database 
     */
     public static Ojek getUserOjek() 
     { return ojek_database;
     }
      /**
-    * @param tidak ada
+    * @param nothing
     * @return data dalam database 
     */
     public static Pelanggan getUserPelanggan(){ 

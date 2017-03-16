@@ -1,20 +1,20 @@
 #BlueJ class context
 comment0.params=id\ nama
 comment0.target=Pelanggan(int,\ java.lang.String)
-comment0.text=\r\n\ @param\ id\ digunakan\ untuk\ mengassign\ id\ dari\ pelanggan\ \r\n\ @param\ nama\ berisi\ nama\ pelanggan\ \r\n\ @return\ tidak\ ada\ \r\n
+comment0.text=\r\n\ @param\ id\ digunakan\ untuk\ mengassign\ id\ dari\ pelanggan\ \r\n\ @param\ nama\ berisi\ nama\ pelanggan\ \r\n\ @return\ nothing\ \r\n
 comment1.params=
 comment1.target=int\ getID()
-comment1.text=\r\n\ @param\ tidak\ ada\ \r\n\ @return\ id\ yang\ sudah\ dimasukkan\ dari\ class\ lain\ \r\n
+comment1.text=\r\n\ @param\ nothing\ \r\n\ @return\ id\ yang\ sudah\ dimasukkan\ dari\ class\ lain\ \r\n
 comment2.params=
 comment2.target=java.lang.String\ getNama()
-comment2.text=\r\n\ @param\ tidak\ ada\ \r\n\ @return\ nama\ yang\ sudah\ dimasukkan\ dari\ class\ lain\ atau\ class\ ini\ \r\n
+comment2.text=\r\n\ @param\ nothing\ \r\n\ @return\ nama\ yang\ sudah\ dimasukkan\ dari\ class\ lain\ atau\ class\ ini\ \r\n
 comment3.params=id
 comment3.target=void\ setID(int)
-comment3.text=\r\n\ @param\ id\ yang\ sudah\ di\ set\ \r\n\ @return\ tidak\ ada\ \ \r\n
+comment3.text=\r\n\ @param\ id\ yang\ sudah\ di\ set\ \r\n\ @return\ nothing\ \ \r\n
 comment4.params=nama
 comment4.target=void\ setNama(java.lang.String)
-comment4.text=\r\n\ @param\ nama\ yang\ telah\ dimasukkan\ \r\n\ @return\ tidak\ ada\r\n
+comment4.text=\r\n\ @param\ nama\ yang\ telah\ dimasukkan\ \r\n\ @return\ nothing\r\n
 comment5.params=
 comment5.target=void\ printData()
-comment5.text=\r\n\ @param\ tidak\ ada\ \r\n\ @return\ tidak\ ada\r\n
+comment5.text=\r\n\ @param\ nothing\ \r\n\ @return\ nothing\r\n
 numComments=6

@@ -9,8 +9,8 @@ public class DatabasePesanan
 {
     private static Pesanan list_pesanan;
     /**
-     * @param tidak ada digunakan karena ini hanya diisi data saja tidak mengambil
-     * @return constructor tidak butuh nilai return
+     * @param nothing
+     * @return nothing
      */
     public DatabasePesanan() {
      // instance variables - replace the example below with your own
@@ -21,7 +21,7 @@ public class DatabasePesanan
       */
     public static boolean addPesanan(Pesanan pesan){
         list_pesanan = pesan;
-        System.out.println("pemasukan pemesanan :"+ list_pesanan +" kedalam list berhasil dilakukan"); 
+        System.out.println("pemasukan pemesanan kedalam list berhasil dilakukan"); 
     return true;
     
     }
@@ -33,12 +33,12 @@ public class DatabasePesanan
     public static boolean hapusPesanan(Pesanan pesan){ 
         pesan = list_pesanan;
         list_pesanan=null;
-        System.out.println("pehapusan pemesanan :"+ list_pesanan +" dari list berhasil dilakukan");
+        System.out.println("pehapusan pemesanan dari list berhasil dilakukan");
     return true;
     }
    
      /**
-      * @param tidak ada 
+      * @param nothing
       * @return list_pesanan yang diambil dalam class Pesanan
       */
     public static Pesanan getPesanan(){ 
