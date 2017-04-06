@@ -1,6 +1,6 @@
 
 /**
- * Abstract class Hero - write a description of the class here
+ * Class Monster - write a description of the class here
  * 
  * @author Jeffry Kurniawan Zheta 
  * @version 6/4/2017
@@ -11,15 +11,26 @@ public class  Monster extends Entity
      /**
      * An example of a method - replace this comment with your own
      * 
-     * @param  y    a sample parameter for a method
-     * @return        the sum of x and y 
+     * @param  name untuk nama dari monster 
+     * @param level untuk level dri monster 
+     * @return nothing
     */
     public Monster(String name, int level){
         super(name,level);}
-    
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
     public void quote(){
     System.out.println("I am the strongest Monster");}
-    
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
     public void fullHP(){
       maxHP = ((level^2)/10)+5;
       strength = (((level^2)/10)+5)/2;

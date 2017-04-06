@@ -1,11 +1,11 @@
 
 /**
- * Write a description of class Entity here.
+ * Abstract Class Entity - Write a description of class Entity here.
  * 
   * @author Jeffry Kurniawan Zheta 
  * @version 6/4/2017
  */
-public class Entity implements Wear
+public abstract class Entity implements Wear
 {
     // instance variables - replace the example below with your own
     protected String name;
@@ -29,78 +29,189 @@ public class Entity implements Wear
     public Entity(String name, int level )
     {
         // initialise instance variables
-        
+         this.name = name;
+        this.level = level;
         fullHP();
     }
     
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
+    
     protected void levelUp(){
-    level = level+1;}
+        level += 1;
+        fullHP();
+    }
         
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  tiff digunakan untuk melihat apakah player masih bisa bermain atau healthnya sudah habis
+     * @return nothing  
+     */ 
     protected void setHP(double diff){
-    this.health= health;
+     health -= (int) diff;
+        if(health <= 0){
+            dead = true;
+        }
 }
     
-    protected int getDamage(double def, double opRank){
+ /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  def yang merupakan defense dari musuh
+     * @param opRank adalah rank dari opponent (musuh) 
+     * @return damage merupakan damage yang dihasilkan
+     */     
+protected int getDamage(double def, double opRank){
     double damage = (1+ (((((2*level)/5)+2)*attack*(weaponDmg/armorDef))/50))*opRank*def;
     return (int) damage;
 }
-    
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
     protected void setPower() {
     double attack = strength * (1+ (weaponDmg/100));
     double defense = strength* (1+ (armorDef/100));
 } 
-    
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return name untuk nama dari monster maupun hero  
+     */ 
     protected String getName() {
     return name;}
-    
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return level yang digunakan untuk perhitungan damage dll
+     */ 
     protected int getLevel(){
     return level;} 
-    
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return maxHP untuk melihat health dari player 
+     */ 
     protected int getHP() {
     return maxHP;} 
-    
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return dead untuk melihat apakah player sudah mati atau belum (pengecekan)  
+     */ 
     protected boolean isDead() {
     return dead;} 
-    
-   protected void setRank(Rank rank) {}
-    
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  rank yang merupakan Rank yang musuh atau rank hero
+     * @return nothing  
+     */ 
+   protected void setRank(Rank rank) {
+   this.rank = rank; }
+     /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return rank  yang merupakan Rank yang musuh atau rank hero
+     */ 
    protected Rank getRank() { 
    return rank;} 
-    
-    protected double getAttack() {
-    return attack;} 
-    
-    protected double getDefense() {
-    return defense;} 
-    
-    public void setWeapon(String name, double dmg){
-    setPower();} 
-    
-    public String getWeapon(){
-    return weapon;} 
-    
-    public void setArmor(String name, double def){
-    setPower();} 
-    
-    public String getArmor(){
-    return armor;} 
-    
-    public double getWeaponDmg() {
-    return weaponDmg;} 
-    
-    public double getArmorDef() {
-    return armorDef;} 
-    
-    protected void fullHP(){} 
-    
-    protected void quote(){} 
-    
-
     /**
      * An example of a method - replace this comment with your own
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
+     * @param  nothing
+     * @return attack merupakan kekuatan attack  
+     */ 
+    protected double getAttack() {
+    return attack;} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return defense kekuatan bertahan 
+     */ 
+    protected double getDefense() {
+    return defense;} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  name untuk nama senjata 
+     * param dmg untuk damage yang dimiliki
+     * @return nothing
+     */ 
+    public void setWeapon(String name, double dmg){
+     weaponDmg = dmg;
+    setPower();} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return weapon untuk nama senjata 
+     */ 
+    public String getWeapon(){
+    return weapon;} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  name untuk nam armor 
+     * @param def untuk kemampuan bertahan dri armor 
+     * @return nothing  
+     */ 
+    public void setArmor(String name, double def){
+   armorDef = def;
+    setPower();} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return armor yang merupakan nama armor   
+     */ 
+    public String getArmor(){
+    return armor;} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return weaponDmg adalah damage dari sebuah senjata   
+     */ 
+    public double getWeaponDmg() {
+    return weaponDmg;} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return armorDef adalah kemampuan bertahan dari senjata 
+     */ 
+    public double getArmorDef() {
+    return armorDef;} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
+    protected void fullHP(){} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
+    protected void quote(){} 
+    
+
+  
     
 }

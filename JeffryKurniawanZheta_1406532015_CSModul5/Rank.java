@@ -10,12 +10,36 @@ public interface Rank
     /**
      * An example of a method header - replace this comment with your own
      * 
-     * @param  y    a sample parameter for a method
-     * @return        the result produced by sampleMethod 
+     * @param  name adalah nama serangan
+     * @return nothing
      */
-    public void setAttackName(String name);
+    public void setAttack(String name);
+     /**
+     * An example of a method header - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing
+     */
     public String getAttackName();
+     /**
+     * An example of a method header - replace this comment with your own
+     * 
+     * @param  power untuk kekuatan serangan
+     * @return nothing
+     */
     public void setAttackPower(int power);
-    public int getAttack();
+     /**
+     * An example of a method header - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing
+     */
+    public int getAttackPower();
+     /**
+     * An example of a method header - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing
+     */
     public double getRank();
 }

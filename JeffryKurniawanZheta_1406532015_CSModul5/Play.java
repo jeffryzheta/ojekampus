@@ -17,12 +17,12 @@ public class Play
      */
     private Play()
     {
-
+       int i;
        initialize();
        System.out.println("Let the war begin!" +
        "\nHero = " + player.getName() + ", level = " + player.getLevel() +
        "\nEnemy = " + enemy.getName() + ", level = " + player.getLevel());
-       for (int i = 1; !player.isDead(); i++)
+       for (i = 0; !player.isDead(); i++)
        {   
            print(i);
            // kode anda
@@ -30,7 +30,11 @@ public class Play
            {
                System.out.println("Enemy died! get ready to face the new one!");
                // kode anda
+               player.levelUp();
                System.out.println("Congrats you are leveled up! your Level = " + player.getLevel());
+                enemyCount++;
+                initializeEnemy();
+                i = 0;
             }
         }
         System.out.println("Hero mati pada level " + player.getLevel());
@@ -39,8 +43,8 @@ public class Play
     /**
      * An example of a method - replace this comment with your own
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param  nothing 
+     * @return  nothing
      */
     private void initialize()
     {
@@ -53,6 +57,12 @@ public class Play
        enemyCount = 1;
        initializeEnemy();
     }
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
     private void initializeEnemy()
     {
         // put your code here
@@ -61,39 +71,72 @@ public class Play
        enemy.setWeapon("Spear",(rand.nextInt(25)+5));
        enemy.setArmor("Wood",(rand.nextInt(25)+5));
     }
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
     private void print(int i)
     {
         // put your code here
-        System.out.println("\nRound = " + i +
-       "\nKill count = " + (enemyCount - 1) +
-       "\nHero health = " + player.getHP() + ", Enemy health = " + enemy.getHP());
+       System.out.println("\nRound = " + i + "\nKill count = " + (enemyCount - 1) +
+            "\nHero health = " + player.getHP() + ", Enemy health = " + enemy.getHP());
+        if(i % 2 == 0){
+            System.out.println("Hero Menyerang");
+            player.quote();
+            attackTurn(player, enemy);
+        }
+        else{
+            System.out.println("Monster Menyerang");
+            enemy.quote();
+            attackTurn(enemy, player);
+        }
     }
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  name untuk nama hero  
+     * @param power untuk perhitungan kekuatan
+     * @return rank untuk melihat pertambahan rank 
+     */ 
     private Rank setRank(String name,int power){
-//       if(player.getLevel()== 1 || player.getLevel() == 4 || player.getLevel() == 7)
-//        {
-//            return new Normal(name,power);
-//        }
-//        
-//        else if(player.getLevel()== 2 || player.getLevel() == 5 || player.getLevel() == 8)
-//        {
-//            return new Tank(name,power);
-//        }
-//        
-//        else if(player.getLevel()== 3 || player.getLevel() == 6 || player.getLevel() == 9)
-//        {
-//            return new Damager(name,power);
-//        }
-return null;
+     if(player.getLevel() == 1 || ((player.getLevel() % 3) - 1 == 0)){
+            return new Normal(name, power);
+        }
+        else if(player.getLevel() == 2 || ((player.getLevel() % 3) - 2 == 0)){
+            return new Tank(name, power);
+        }
+        else if(player.getLevel() == 3 || ((player.getLevel() % 3) == 0)){
+            return new Damager(name, power);
+        }
+        else return null;
+       
     }
     
-    private void attackTurn(Entity attacker, Entity defender)
+   /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing
+     * @return nothing  
+     */ 
+    public static void main(String[] args)
     {
         // put your code here
-        
+          Play newGame = new Play();
     }
-    public void main(String[] args)
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  attacker dari class entity (penyerang)
+     * @param  defender dari class entity (bertahan)
+     * @return nothing  
+     */ 
+     private void attackTurn(Entity attacker, Entity defender)
     {
         // put your code here
-        
+        defender.setHP(attacker.getDamage(attacker.getRank().getRank(), defender.getRank().getRank()));
+        System.out.println("Damage = " + attacker.getDamage(attacker.getRank().getRank(), defender.getRank().getRank()));
     }
+    
 }

@@ -1,0 +1,136 @@
+Project documentation
+<---- javadoc command: ---->
+C:\Program Files (x86)\BlueJ\jdk\bin\javadoc.exe
+-sourcepath
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5
+-source
+1.8
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-core.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-device.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-gpio-extension.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-service.jar;C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5
+-d
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+-doctitle
+JeffryKurniawanZheta_1406532015_CSModul5
+-windowtitle
+JeffryKurniawanZheta_1406532015_CSModul5
+-author
+-version
+-nodeprecated
+-package
+-link
+http://download.oracle.com/javase/8/docs/api/
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Entity.java
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Play.java
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Wear.java
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Monster.java
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Damager.java
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Hero.java
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Rank.java
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Normal.java
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5/Tank.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java...
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Play.java...
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Wear.java...
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Monster.java...
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Damager.java...
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Hero.java...
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Rank.java...
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Normal.java...
+Loading source file C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Tank.java...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_40
+Building tree for all the packages and classes...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Damager.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Damager.java:39: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Damager.java:57: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Damager.java:66: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Damager.java:30: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Damager.java:48: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Entity.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:205: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:205: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:181: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:197: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:137: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:145: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:105: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:97: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:89: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:129: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:163: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:189: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:113: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:44: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:44: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:212: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:212: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:172: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:55: warning - @param argument "tiff" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:55: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:79: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:79: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:121: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Entity.java:154: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Hero.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Hero.java:18: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Hero.java:36: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Hero.java:36: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Hero.java:27: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Hero.java:27: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Monster.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Monster.java:18: warning - Tag @return cannot be used in constructor documentation.  It can only be used in the following types of documentation: method.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Monster.java:34: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Monster.java:34: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Monster.java:26: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Monster.java:26: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Normal.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Normal.java:40: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Normal.java:56: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Normal.java:65: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Normal.java:32: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Normal.java:48: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Play.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Play.java:123: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Play.java:123: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Rank.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Rank.java:23: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Rank.java:37: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Rank.java:44: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Rank.java:16: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Rank.java:30: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Tank.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Tank.java:38: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Tank.java:53: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Tank.java:61: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Tank.java:31: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Tank.java:46: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\Wear.html...
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Wear.java:39: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Wear.java:53: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Wear.java:24: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Wear.java:46: warning - @param argument "nothing" is not a parameter name.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Wear.java:32: warning - @return tag cannot be used in method with void return type.
+C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\Wear.java:17: warning - @return tag cannot be used in method with void return type.
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\package-frame.html...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\package-summary.html...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\package-tree.html...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\constant-values.html...
+Building index for all the packages and classes...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\overview-tree.html...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\index-all.html...
+Building index for all classes...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\allclasses-frame.html...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\allclasses-noframe.html...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\index.html...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\help-doc.html...
+Generating C:\Users\Jeffry Zheta\Documents\sistem ojekampus\JeffryKurniawanZheta_1406532015_CSModul5\doc\stylesheet.css...
+62 warnings

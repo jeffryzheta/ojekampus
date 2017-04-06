@@ -5,7 +5,7 @@
  * @author Jeffry Kurniawan Zheta 
  * @version 6/4/2017
  */
-public abstract class Tank implements Rank
+public class Tank implements Rank
 {
     // instance variables - replace the example below with your own
     private String attackName;
@@ -17,22 +17,47 @@ public abstract class Tank implements Rank
     public Tank(String name, int power)
     {
         // initialise instance variables
-       
+        attackName = name;
+        attackPower = power;
     }
 
     
     /**
      * An example of a method - replace this comment with your own
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param  name untuk nama serangan
+     * @return nothing
      */
-    public void setAttackName(String name) {} 
+    public void setAttack(String name) {} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  nothing 
+     * @return attackName nama  untuk serangan
+     */
     public String getAttackName() {
     return attackName;}
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  power kekuatan untuk serangan
+     * @return nothing
+     */
     public void setAttackPower(int power){} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param nothing
+     * @return attackPower kekuatan serangan
+     */
     public int getAttackPower(){
     return attackPower;} 
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param nothing
+     * @return rank kenaikan rankz
+     */
     public double getRank(){
     return rank;} 
     
