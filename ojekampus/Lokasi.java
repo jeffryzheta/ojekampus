@@ -7,10 +7,11 @@
  */
 public class Lokasi
 {
-   private static double x;
-   private static double y;
+   private double x;
+   private double y;
    private String nama_lokasi; 
    private String keterangan_lokasi;
+  
    
     /**
     * @param nama_lokasi berisi nama lokasi saat ini 
@@ -25,27 +26,34 @@ public class Lokasi
     this.y=y;
     this.keterangan_lokasi=keterangan_lokasi;
     }
+    public void printData()
+    {
+        System.out.println("Koordinat x:" +x);
+        System.out.println("Koordinat y:" +y);
+        System.out.println("Keterangan Lokasi:" +keterangan_lokasi);
+    }
    /**
     * @param nothing 
     * @return x yang dimasukkan user  
     */
     public double getX(){
-        return x;
+        return 0;
     } 
     /**
     * @param nothing 
-    * @return y yang dimasukkan user  
+    * @return y yang dimakkan user  
     */
      public double getY(){
-         return y;
+         return 0;
     }
     /**
     * @param nothing 
     * @return nama_lokasi yang dimasukkan user  
     */
-   public String getNama() { 
+   public String getNama() {  
     return nama_lokasi;
     } 
+    
     /**
     * @param nothing 
     * @return x yang dimasukkan user  
@@ -82,5 +90,9 @@ public class Lokasi
         this.keterangan_lokasi= keterangan_lokasi;
        
     } 
+     public String toString()
+    {
+        return "daerah "+this.nama_lokasi + "("+this.x+","+this.y+") di "+this.keterangan_lokasi;
+    }
     
 }

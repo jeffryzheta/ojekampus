@@ -7,8 +7,12 @@ comment1.target=boolean\ addPesanan(Pesanan)
 comment1.text=\r\n\ @param\ pesan\ berisi\ informasi\ pesanan\ yang\ diambil\ dari\ class\ Pesanan\ dan\ dimasukkan\ ke\ DB\ \r\n\ @return\ true\ berarti\ database\ akan\ siap\ dimasukkan\ setiap\ saat\ \r\n
 comment2.params=pesan
 comment2.target=boolean\ hapusPesanan(Pesanan)
-comment2.text=\r\n\ @param\ pesan\ kali\ ini\ digunakan\ untuk\ menunjukkan\ yang\ mana\ yang\ dihapus\ \r\n\ @return\ true\ boolean\ yang\ berarti\ siap\ di\ hapus\ setiap\ saat\ \r\n
-comment3.params=
-comment3.target=Pesanan\ getPesanan()
-comment3.text=\r\n\ @param\ nothing\r\n\ @return\ list_pesanan\ yang\ diambil\ dalam\ class\ Pesanan\r\n
-numComments=4
+comment3.params=pengguna
+comment3.target=boolean\ hapusPesanan(Pelanggan)
+comment3.text=\r\n\ @param\ pesan\ kali\ ini\ digunakan\ untuk\ menunjukkan\ yang\ mana\ yang\ dihapus\ \r\n\ @return\ true\ boolean\ yang\ berarti\ siap\ di\ hapus\ setiap\ saat\ \r\n
+comment4.params=pengguna
+comment4.target=Pesanan\ getPesanan(Pelanggan)
+comment4.text=\ \ public\ static\ boolean\ hapusPesanan(Pelanggan\ pengguna)\ {\r\n\ \ \ \ \ \ \ \ if(pengguna.getNama()\=\=pengguna)\ {\ \r\n\ \ \ \ \ \ \ \ \ \ \ \ Pesanan.pesananSelesai();\r\n\ \ \ \ \ \ \ \ }\r\n}
+comment5.params=
+comment5.target=java.util.ArrayList\ getDatabase()
+numComments=6

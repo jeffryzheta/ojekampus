@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=OjeKampus()
-comment0.text=\r\n\ @param\ nothing\r\n\ @return\ nothing\r\n\ \r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment1.text=\ \r\n\ @param\ adalah\ String\ args[]\ digunakan\ untuk\ menunjukkan\ \r\n\ argument\ dari\ tipe\ data\ String\ yang\ diterima\ Java\ app\ jika\ \r\n\ dijalankan.\r\n\ @return\ tidak\ digunakan\ karena\ dalam\ bentuk\ void\ \r\n
-numComments=2

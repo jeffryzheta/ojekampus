@@ -19,6 +19,12 @@ public enum StatusOjek
     this.deskripsi=deskripsi; 
     }
     
+     public String getdeskripsi()
+    {
+        return deskripsi;
+    }
+    
+    
     public String toString() { 
         
         return deskripsi;

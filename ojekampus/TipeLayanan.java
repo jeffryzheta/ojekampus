@@ -17,6 +17,11 @@ public enum TipeLayanan
       this.deskripsi=deskripsi;  
     } 
     
+     public String getdeskripsi()
+  {
+     return deskripsi;
+  }
+    
     public String toString() 
     { 
         return deskripsi;

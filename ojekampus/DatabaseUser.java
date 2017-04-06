@@ -5,27 +5,38 @@
  * @author Jeffry Kurniawan Zheta
  * @version 3/4/2017
  */
+import java.util.ArrayList; 
+import java.util.Objects;
 public class DatabaseUser
 {
-    private static Pelanggan pelanggan_database;
-    private static Ojek ojek_database; 
-    private static int id_ojek_terakhir=1; 
-    private static int id_pelanggan_terakhir=1; 
+    private static ArrayList<Pelanggan> pelanggan_database = new ArrayList<>();
+    private static ArrayList<Ojek> ojek_database = new ArrayList<>();
+    private static int id_ojek_terakhir; 
+    private static int id_pelanggan_terakhir; 
    /**
     * @param baru yang diambil dari class Pelanggan untuk ditambahkan 
     * @return nothing
     */
-    public DatabaseUser(/*Pelanggan baru*/) {
-    
-    } 
+//     public DatabaseUser(/*Pelanggan baru*/) {
+//     
+//     } 
     /**
     * @param baru direfer dari class Pelanggan
     * @return true berarti akan membuat siap di tambahkan kapan saja
     */
     public static boolean addPelanggan(Pelanggan baru) {
-        pelanggan_database = baru; 
+       /* pelanggan_database = baru; 
          System.out.println("Penambahan Pelanggan kedalam database berhasil dilakukan");
+        */
+        for (Pelanggan list : pelanggan_database) {
+            if(baru.getNama().equals(list.getNama())) {
+                return false;
+            }
+        }
+        
+        pelanggan_database.add(baru);
         return true;
+       
     } 
     
     /**
@@ -33,16 +44,27 @@ public class DatabaseUser
     * @return true berarti akan membuat siap di dihapus kapan saja
     */
     public static boolean removePelanggan(int id) {
-        pelanggan_database=null;
-        return true; 
+        for (Pelanggan list : pelanggan_database) {
+            if(id == (list.getID())) {
+                pelanggan_database.remove(list);
+                return true;
+            }
+        }
+        return false; 
     } 
     /**
     * @param baru direfer dari class Ojek
     * @return true berarti akan membuat siap di tambahkan kapan saja
     */
     public static boolean addOjek(Ojek baru) {
-        ojek_database = baru; 
-        System.out.println("Penambahan Ojek kedalam database berhasil dilakukan");
+     //   ojek_database = baru; 
+     for (Ojek list : ojek_database) {
+            if(baru.getNama().equals(list.getNama())) {
+                return false;
+            }
+        }
+        ojek_database.add(baru);
+        System.out.println("Ojek baru berhasil ditambahkan ke dalam database");
         return true; 
     } 
      /**
@@ -50,8 +72,13 @@ public class DatabaseUser
     * @return true berarti akan membuat siap di dihapus kapan saja
     */
     public static boolean removeOjek(int id) {
-        ojek_database=null;
-        return true;
+        for (Ojek list : ojek_database) {
+            if(id == (list.getID())) {
+                ojek_database.remove(list);
+                return true;
+            }
+        }
+        return false;
     } 
     /**
     * @param nothing
@@ -68,20 +95,41 @@ public class DatabaseUser
         return id_pelanggan_terakhir;
 
     }
+    
+    public static ArrayList<Ojek>  getOjekDatabase() {
+        
+        return ojek_database;
+    }
+     public static ArrayList<Pelanggan> getPelangganDatabase() {
+        
+        return pelanggan_database;
+    }
     /**
     * @param nothing
     * @return data dalam database 
     */
-    public static Ojek getUserOjek() 
-    { return ojek_database;
+    public static Ojek getUserOjek(int id) 
+    { 
+         for (Ojek list : ojek_database) {
+            if(id == (list.getID())) {
+                return list;
+            }
+        }
+        return null;
+        //return ojek_database;
     }
      /**
     * @param nothing
     * @return data dalam database 
     */
-    public static Pelanggan getUserPelanggan(){ 
-        
-        return pelanggan_database;
+    public static Pelanggan getUserPelanggan(int id){ 
+         for (Pelanggan list : pelanggan_database) {
+            if(id == (list.getID())) {
+                return list;
+            }
+        }
+        return null;
+        //return pelanggan_database;
     } 
         
 }

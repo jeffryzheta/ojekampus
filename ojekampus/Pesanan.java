@@ -8,16 +8,17 @@
 public class Pesanan
 {
    //class ini banyak berisi non-static variable yang digunakan bermacam-macam
-   private Ojek pelayan=null;
+   private Ojek pelayan;
    private Pelanggan pengguna; 
    private String pelanggan_awal;
    private String pelanggan_akhir;
    private double biaya;
-   private String layanan;
+   private TipeLayanan layanan;
    private Lokasi lokasi_awal;
    private Lokasi lokasi_akhir;
-   private boolean diproses=false;
-   private boolean selesai=false; 
+   private boolean diproses;
+   private boolean selesai; 
+   
    
     /**
   * @param pengguna untuk mendapatkan pengguna yang sedang memakai jasa Ojek 
@@ -29,15 +30,38 @@ public class Pesanan
   * @return nothing 
   * 
   */
-   public Pesanan(Pelanggan pengguna,String layanan,Lokasi lokasi_awal, Lokasi lokasi_akhir, String pelanggan_awal, String pelanggan_akhir, double biaya){
+ public Pesanan(Pelanggan pengguna,TipeLayanan layanan,Lokasi lokasi_awal, Lokasi lokasi_akhir, String pelanggan_awal){
    // instance variables - replace the example below with your own
     this.pengguna=pengguna; 
     this.layanan=layanan;
     this.lokasi_akhir=lokasi_akhir;
     this.lokasi_awal=lokasi_awal;
     this.pelanggan_awal=pelanggan_awal;
-    this.biaya=biaya;
-    } 
+  
+    }
+  public Pesanan(Pelanggan pengguna, TipeLayanan layanan, Lokasi lokasi_awal, Lokasi lokasi_akhir, String pelanggan_awal, String pelanggan_akhir)
+    {
+        this.pengguna = pengguna;
+        this.layanan = layanan;
+        this.lokasi_awal = lokasi_awal;
+        this.lokasi_akhir = lokasi_akhir;
+        this.pelanggan_awal = pelanggan_awal;
+        this.pelanggan_akhir = pelanggan_akhir;
+    }
+    
+    public Pesanan(Pelanggan pengguna, TipeLayanan layanan, Lokasi lokasi_awal, Lokasi lokasi_akhir, 
+            String pelanggan_awal, String pelanggan_akhir, double biaya)
+    {
+        this.pengguna = pengguna;
+        this.layanan = layanan;
+        this.lokasi_awal = lokasi_awal;
+        this.lokasi_akhir = lokasi_akhir;
+        this.pelanggan_awal = pelanggan_awal;
+        this.pelanggan_akhir = pelanggan_akhir;
+        this.biaya = biaya;
+    }     
+    
+    
     public Ojek getPelayan(){
         return pelayan;
     }
@@ -82,7 +106,7 @@ public class Pesanan
   * @return layanan karena belum ada tipe layanan yang di masukkan 
   * 
   */
-    public String getTipeLayanan() { 
+    public TipeLayanan getTipeLayanan() { 
      return layanan;   
         
     } 
@@ -110,7 +134,7 @@ public class Pesanan
   * @return bernilai false atau true karen boolean, ini untuk melihat status dari pesanan, apakah sudah di ambil atau belum
   * 
   */
- public boolean getDiproses() {
+ public boolean getStatusDiproses() {
     return diproses;
     } 
     
@@ -119,7 +143,7 @@ public class Pesanan
   * @return bernilai false atau true karen boolean, ini untuk melihat status dari pesanan, apakah sudah di ambil atau belum
   * 
   */
- public boolean getSelesai() {
+ public boolean getStatusSelesai() {
     return selesai;
     } 
     
@@ -148,7 +172,7 @@ public class Pesanan
     } 
      public void setTipeLayanan(TipeLayanan layanan){
         
-      //this.layanan = layanan;
+      this.layanan = layanan;
     } 
         public void setLokasiAwal(Lokasi lokasi_awal) {
         this.lokasi_awal=lokasi_awal;
@@ -168,32 +192,78 @@ public class Pesanan
         this.selesai=selesai;
     }    
 
-     /**
-  * @param nothing
-  * @return null untuk menjaga agar getOjek tidak terus-menerus bertambah dari class Ojek
-  * 
-  */
-    public Ojek getOjek() { 
-    return pelayan; 
-    } 
+//      /**
+//   * @param nothing
+//   * @return null untuk menjaga agar getOjek tidak terus-menerus bertambah dari class Ojek
+//   * 
+//   */
+//     public Ojek getOjek() { 
+//     return pelayan; 
+// }
 
-  
-
+//       /**
+//   * @param nothing
+//   * @return nothing
+//   * 
+//   */
+//     public void printData() { 
+//         System.out.println("Lokasi Pelanggan awal : "+ lokasi_awal.getNama());
+//         System.out.println("Lokasi Pelanggan akhir : "+ lokasi_akhir.getNama());
+//         System.out.println("Tipe Layanan : "+ pelayan);
+//         System.out.println("Pelangan awal : "+ pelanggan_awal);
+//         System.out.println("Pelanggan akhir : "+ pelanggan_akhir);
+//         System.out.println("Status diproses: "+ diproses);
+//         System.out.println("Status Selesai: "+ selesai);
+//         
+//     } 
     
-
-      /**
-  * @param nothing
-  * @return nothing
-  * 
-  */
-    public void printData() { 
-        System.out.println("Lokasi Pelanggan awal : "+ lokasi_awal.getNama());
-        System.out.println("Lokasi Pelanggan akhir : "+ lokasi_akhir.getNama());
-        System.out.println("Tipe Layanan : "+ getTipeLayanan());
-    } 
-    
-   
-   
-   
+    public String toString() {
+        String final_status ="Kosong";
+        if(diproses==true && selesai==false) {
+            final_status="DIPROSES";
+        }else
+        if (diproses==false && selesai==false){
+            
+            final_status="KOSONG";
+        }
+        else if (diproses==false && selesai==true) {
+            
+            final_status="SELESAI";
+        }
+        else 
+        {
+            final_status="SOMETHING ERROR";
+        }
+        
+        if(pelayan==null)
+        {
+            if(pelanggan_akhir!=null){
+                return "Created by "+ pengguna.getNama() + " for " + 
+                pelanggan_awal + " in " + lokasi_awal.getNama()+ " to " +
+                pelanggan_akhir + " in " + lokasi_akhir.getNama() + " with service "+layanan+ " status "+ final_status+ " || ";
+            }
+            else { 
+                return "created by "+ pengguna.getNama() + " for " + pelanggan_awal + " in " + lokasi_awal.getNama() + " to " +
+                lokasi_akhir.getNama()+ " with servie " + layanan + "status" + final_status + " || ";
+                } 
+            }
+        else 
+        { 
+              if(pelanggan_akhir != null)
+           {
+             return " created by " + pengguna.getNama() + " for " + pelanggan_awal + " in " + lokasi_awal.getNama() + " to " + pelanggan_akhir + " to " +lokasi_akhir.getNama() + " with service " + layanan + " status " + final_status + "|| processed by " + pelayan.getNama();   
+           }
+           
+           else
+           {
+              return " created by " + pengguna.getNama() + " for " + pelanggan_awal + " in " + lokasi_awal.getNama() + " to " +lokasi_akhir.getNama() + " with service " + layanan + " status " + final_status + "|| processed by " + pelayan.getNama();
+           } 
+    }
     
 }
+
+}
+   
+   
+   
+    
