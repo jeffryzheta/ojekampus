@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=id\ nama
+comment0.target=User(int,\ java.lang.String)
+comment0.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
+comment1.params=
+comment1.target=java.util.Date\ getDOB()
+comment10.params=telepon
+comment10.target=boolean\ setTelepon(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getEmail()
+comment3.params=
+comment3.target=int\ getID()
+comment4.params=
+comment4.target=java.lang.String\ getNama()
+comment5.params=
+comment5.target=java.lang.String\ getTelepon()
+comment6.params=day\ month\ year
+comment6.target=void\ seDOB(int,\ int,\ int)
+comment7.params=email
+comment7.target=boolean\ setEmail(java.lang.String)
+comment8.params=id
+comment8.target=void\ setID(int)
+comment9.params=nama
+comment9.target=void\ setNama(java.lang.String)
+numComments=11

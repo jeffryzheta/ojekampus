@@ -114,15 +114,24 @@ System.out.println("Pesanan dibatalkan");
    Lokasi newLokasi6 = new Lokasi("Ruang Robotik", 19,33, "Fakultas Teknik UI");
    
    Ojek newOjek1 = new Ojek(1, "Boss", newLokasi1);
+  // newOjek1.setDOB(19,10,1996);
+ //  newOjek1.setNoPlat(B3147SOT);
    Ojek newOjek2 = new Ojek(2, "Bossoka", newLokasi2);
+  // newOjek2.setDOB(19,10,1996);
+  // newOjek2.setNoPlat(B3147SO);
    Ojek newOjek3 = new Ojek(3, "Bossako", newLokasi3);
+  // newOjek3.setNoPlat(B3147S);
+  // newOjek3.setDOB(19,10,1996);
    DatabaseUser.addOjek(newOjek1);
    DatabaseUser.addOjek(newOjek2);
    DatabaseUser.addOjek(newOjek3);
    
    Pelanggan newPelanggan1 = new Pelanggan(3, "Rini", "08770877087");
+//    newPelanggan1.setDOB(19,10,1996);
    Pelanggan newPelanggan2 = new Pelanggan(2, "Rinia", "08120812081");
+//    newPelanggan2.setDOB(19,10,1996);
    Pelanggan newPelanggan3 = new Pelanggan(1, "Rinianty", "08780878087");
+//    newPelanggan3.setDOB(19,10,1996);
    DatabaseUser.addPelanggan(newPelanggan1);
    DatabaseUser.addPelanggan(newPelanggan2);
    DatabaseUser.addPelanggan(newPelanggan3);

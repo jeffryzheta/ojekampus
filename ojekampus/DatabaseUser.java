@@ -11,15 +11,15 @@ public class DatabaseUser
 {
     private static ArrayList<Pelanggan> pelanggan_database = new ArrayList<>();
     private static ArrayList<Ojek> ojek_database = new ArrayList<>();
-    private static int id_ojek_terakhir; 
-    private static int id_pelanggan_terakhir; 
+    private static int id_ojek_terakhir=1; 
+    private static int id_pelanggan_terakhir=1; 
    /**
     * @param baru yang diambil dari class Pelanggan untuk ditambahkan 
     * @return nothing
     */
-//     public DatabaseUser(/*Pelanggan baru*/) {
-//     
-//     } 
+    public DatabaseUser(Pelanggan baru) {
+    
+    } 
     /**
     * @param baru direfer dari class Pelanggan
     * @return true berarti akan membuat siap di tambahkan kapan saja
@@ -29,12 +29,16 @@ public class DatabaseUser
          System.out.println("Penambahan Pelanggan kedalam database berhasil dilakukan");
         */
         for (Pelanggan list : pelanggan_database) {
-            if(baru.getNama().equals(list.getNama())) {
-                return false;
+            if(baru.getID()==list.getID()) {
+               System.out.println("\n-----------Gagal memasukkan ke database--------------\n");
+               return false;
+
             }
         }
         
         pelanggan_database.add(baru);
+        id_pelanggan_terakhir=baru.getID();
+        System.out.println("\n-----------Berhasil memasukkan ke database--------------\n");
         return true;
        
     } 
@@ -59,11 +63,13 @@ public class DatabaseUser
     public static boolean addOjek(Ojek baru) {
      //   ojek_database = baru; 
      for (Ojek list : ojek_database) {
-            if(baru.getNama().equals(list.getNama())) {
+            if(baru.getID()==list.getID()) {
+                System.out.println("Ojek baru gagal ditambahkan ke dalam database");
                 return false;
             }
         }
         ojek_database.add(baru);
+        id_ojek_terakhir=baru.getID();
         System.out.println("Ojek baru berhasil ditambahkan ke dalam database");
         return true; 
     } 
