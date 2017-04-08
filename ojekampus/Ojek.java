@@ -196,15 +196,16 @@ public class Ojek extends User
     //       System.out.println("Status Ojek : "+ status);
     //     } 
       public String toString() { 
-            
-          if (pesanan_sekarang==null) {
-              return "nama Ojek : "+ nama +" . Status Ojek : " +status+ ". Ojek: " + id + " Nomer Plat "+no_plat ;
-            }
-          else 
-          { 
-              return "nama Ojek : " + nama + ". Status Ojek : " + status + ", id Ojek: " +id + " Nomer Plat "+no_plat+" , Nama Pelanggan : "+ pesanan_sekarang.getPelanggan().getNama();
-    
-            }
+            String str = new String();
+//           if (pesanan_sekarang==null) {
+//               return "nama Ojek : "+ nama +" . Status Ojek : " +status+ ". Ojek: " + id + " Nomer Plat "+no_plat ;
+//             }
+//           else 
+//           { 
+//               return "nama Ojek : " + nama + ". Status Ojek : " + status + ", id Ojek: " +id + " Nomer Plat "+no_plat+" , Nama Pelanggan : "+ pesanan_sekarang.getPelanggan().getNama();
+//     
+//             }
+        return str;
         }
 }
 

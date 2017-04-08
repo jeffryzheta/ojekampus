@@ -29,7 +29,7 @@ public class DatabaseUser
          System.out.println("Penambahan Pelanggan kedalam database berhasil dilakukan");
         */
         for (Pelanggan list : pelanggan_database) {
-            if(baru.getID()==list.getID()) {
+            if(baru.getID()==list.getID() && list instanceof Pelanggan) {
                System.out.println("\n-----------Gagal memasukkan ke database--------------\n");
                return false;
 
@@ -49,7 +49,7 @@ public class DatabaseUser
     */
     public static boolean removePelanggan(int id) {
         for (Pelanggan list : pelanggan_database) {
-            if(id == (list.getID())) {
+            if(id == list.getID() && list instanceof Pelanggan) {
                 pelanggan_database.remove(list);
                 return true;
             }
@@ -63,7 +63,7 @@ public class DatabaseUser
     public static boolean addOjek(Ojek baru) {
      //   ojek_database = baru; 
      for (Ojek list : ojek_database) {
-            if(baru.getID()==list.getID()) {
+            if(baru.getID()==list.getID() && list instanceof Ojek) {
                 System.out.println("Ojek baru gagal ditambahkan ke dalam database");
                 return false;
             }
@@ -79,7 +79,7 @@ public class DatabaseUser
     */
     public static boolean removeOjek(int id) {
         for (Ojek list : ojek_database) {
-            if(id == (list.getID())) {
+            if(id == list.getID() && list instanceof Ojek) {
                 ojek_database.remove(list);
                 return true;
             }
@@ -117,7 +117,7 @@ public class DatabaseUser
     public static Ojek getUserOjek(int id) 
     { 
          for (Ojek list : ojek_database) {
-            if(id == (list.getID())) {
+            if(id == list.getID() && list instanceof Ojek) {
                 return list;
             }
         }
@@ -130,7 +130,7 @@ public class DatabaseUser
     */
     public static Pelanggan getUserPelanggan(int id){ 
          for (Pelanggan list : pelanggan_database) {
-            if(id == (list.getID())) {
+            if(id == list.getID() && list instanceof Pelanggan) {
                 return list;
             }
         }

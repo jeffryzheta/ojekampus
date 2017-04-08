@@ -120,15 +120,16 @@ private GregorianCalendar newCalendar;
       
       public String toString()
       { 
-      if(DatabasePesanan.getPesanan(this) != null)
-        {
-            return "(Nama: " + nama + ", ID: " + id + ", Telefon: " + telepon + ", Pengguna awal: " + DatabasePesanan.getPesanan(this).getPenggunaAwal() + ")";
-        }
-        else 
-        {
-            return "(Nama: " + nama + ", ID: " + id + ", Telefon: " + telepon  + ")";
-        }  
-    
+          String str = new String();
+//       if(DatabasePesanan.getPesanan(this) != null)
+//         {
+//             return "(Nama: " + nama + ", ID: " + id + ", Telefon: " + telepon + ", Pengguna awal: " + DatabasePesanan.getPesanan(this).getPenggunaAwal() + ")";
+//         }
+//         else 
+//         {
+//             return "(Nama: " + nama + ", ID: " + id + ", Telefon: " + telepon  + ")";
+//         }  
+    return str;
     }
    
 }
