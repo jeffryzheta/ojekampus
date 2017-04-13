@@ -136,10 +136,12 @@ System.out.println("Pesanan dibatalkan");
    newPelanggan3.setDOB(19,10,1996);
    DatabaseUser.addPelanggan(newPelanggan3);
    
-   DatabasePesanan.addPesanan(new Pesanan(newPelanggan1, TipeLayanan.BeliBarang, newLokasi4, newLokasi5, "Budi", "Budian"));
+  try { DatabasePesanan.addPesanan(new Pesanan(newPelanggan1, TipeLayanan.BeliBarang, newLokasi4, newLokasi5, "Budi", "Budian"));
    DatabasePesanan.addPesanan(new Pesanan(newPelanggan2, TipeLayanan.AntarBarang, newLokasi1, newLokasi6, "Budskuy", "Budianduk"));
    DatabasePesanan.addPesanan(new Pesanan(newPelanggan3, TipeLayanan.AntarOrang, newLokasi3, newLokasi2, "Budidayakan"));
-   
+}catch (PesananSudahAdaException err){
+    err.getMessage();
+}
     Administrasi.printAllDatabase();
     for(int i=0; i<3; i++) { 
            Administrasi.jalankanSistemPenugas();
@@ -164,7 +166,11 @@ System.out.println("Pesanan dibatalkan");
     System.out.println("====================================================");
     Administrasi.printAllDatabase();
     Administrasi.pesananSelesai(newPelanggan3);
-    DatabasePesanan.hapusPesanan(newPelanggan3);
+    try {DatabasePesanan.hapusPesanan(newPelanggan3);}
+    catch (PesananOlehPelangganDitemukanException err) {
+        
+        err.getMessage();}
+
     System.out.println("\nDatabase setelah menyelesaikan pesanan dan menghapus pesanan antar orang:");
     System.out.println("====================================================");
     Administrasi.printAllDatabase();
