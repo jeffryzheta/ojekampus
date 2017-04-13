@@ -11,10 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 public class Pelanggan extends User
 { 
-private int id; 
-private String nama, telepon, email;
-private Date dob;
-private GregorianCalendar newCalendar;
+// private int id; 
+// private String nama, telepon, email;
+// private Date dob;
+// private GregorianCalendar newCalendar;
   /**
     * @param id digunakan untuk mengassign id dari pelanggan 
     * @param nama berisi nama pelanggan 
@@ -120,16 +120,16 @@ private GregorianCalendar newCalendar;
       
       public String toString()
       { 
-          String str = new String();
-//       if(DatabasePesanan.getPesanan(this) != null)
-//         {
-//             return "(Nama: " + nama + ", ID: " + id + ", Telefon: " + telepon + ", Pengguna awal: " + DatabasePesanan.getPesanan(this).getPenggunaAwal() + ")";
-//         }
-//         else 
-//         {
-//             return "(Nama: " + nama + ", ID: " + id + ", Telefon: " + telepon  + ")";
-//         }  
-    return str;
+         
+      if(DatabasePesanan.getPesanan(this) != null)
+        {
+            return "(Nama: " + nama + ", ID: " + id + ", Telefon: " + telepon + ", Pengguna awal: " + DatabasePesanan.getPesanan(this).getPenggunaAwal() + ")";
+        }
+        else 
+        {
+            return "(Nama: " + nama + ", ID: " + id + ", Telefon: " + telepon  + ")";
+        }  
+ 
     }
    
 }

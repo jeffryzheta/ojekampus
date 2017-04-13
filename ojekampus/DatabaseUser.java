@@ -39,6 +39,7 @@ public class DatabaseUser
         pelanggan_database.add(baru);
         id_pelanggan_terakhir=baru.getID();
         System.out.println("\n-----------Berhasil memasukkan ke database--------------\n");
+        id_pelanggan_terakhir++;
         return true;
        
     } 
@@ -71,6 +72,7 @@ public class DatabaseUser
         ojek_database.add(baru);
         id_ojek_terakhir=baru.getID();
         System.out.println("Ojek baru berhasil ditambahkan ke dalam database");
+        id_ojek_terakhir++;
         return true; 
     } 
      /**
@@ -91,6 +93,7 @@ public class DatabaseUser
     * @return id yang terisi pada ojek yang terakhir
     */
     public static int getIDOjekTerakhir(){
+        
         return id_ojek_terakhir; 
     } 
     /**

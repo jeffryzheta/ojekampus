@@ -53,6 +53,7 @@ public class Administrasi
     public static void ojekAmbilPesanan(Pesanan pesan, Ojek pelayan) {
        pelayan.setStatus(StatusOjek.Jemput);
        pelayan.setPesanan(pesan);
+//        pesan.setPelayan(pelayan);
     }
     public static void ojekLepasPesanan(Ojek pelayan){
         

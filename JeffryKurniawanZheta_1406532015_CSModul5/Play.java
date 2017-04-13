@@ -51,7 +51,7 @@ public class Play
         // put your code here
        rand = new Random();
        player = new Hero("Zheta",1);
-       player.setRank(setRank(player.getName(), 100));
+       player.setRank(setRank(player.getName(), 1));
        player.setWeapon("Samurai",50);
        player.setArmor("Snake Skin",50);
        enemyCount = 1;

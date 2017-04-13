@@ -18,6 +18,7 @@ public abstract class User
     protected String telepon;
     protected GregorianCalendar newCalendar;
     
+    
 
     /**
      * An example of a method - replace this comment with your own
@@ -64,7 +65,7 @@ public abstract class User
     public String getTelepon(){
         return telepon; 
     } 
-    public void seDOB(int day, int month, int year){
+    public void setDOB(int day, int month, int year){
       newCalendar = new GregorianCalendar(year, month, day);
     
       this.dob=dob;

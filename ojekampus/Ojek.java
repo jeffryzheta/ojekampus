@@ -15,10 +15,11 @@ public class Ojek extends User
           private StatusOjek status;
           private Lokasi posisiSekarang;
           private Pesanan pesanan_sekarang;
-          private int id;
-          private String nama, email, no_plat, telepon;
-          private GregorianCalendar newCalendar;
-          private Date dob;
+          private String no_plat;
+//           private int id;
+//           private String nama, email, no_plat, telepon;
+//           private GregorianCalendar newCalendar;
+//           private Date dob;
       
   
        /**
@@ -28,7 +29,9 @@ public class Ojek extends User
         * @return nothing 
         */
       public Ojek(int id, String nama, Lokasi posisi_sekarang){
+          
           super(id,nama);
+       
           this.posisiSekarang=posisiSekarang;
         }
 //          /**
@@ -196,16 +199,16 @@ public class Ojek extends User
     //       System.out.println("Status Ojek : "+ status);
     //     } 
       public String toString() { 
-            String str = new String();
-//           if (pesanan_sekarang==null) {
-//               return "nama Ojek : "+ nama +" . Status Ojek : " +status+ ". Ojek: " + id + " Nomer Plat "+no_plat ;
-//             }
-//           else 
-//           { 
-//               return "nama Ojek : " + nama + ". Status Ojek : " + status + ", id Ojek: " +id + " Nomer Plat "+no_plat+" , Nama Pelanggan : "+ pesanan_sekarang.getPelanggan().getNama();
-//     
-//             }
-        return str;
+       
+          if (pesanan_sekarang==null) {
+              return "nama Ojek : "+ nama +" . Status Ojek : " +status+ ". Ojek: " + id + " Nomer Plat "+no_plat ;
+            }
+          else 
+          { 
+              return "nama Ojek : " + nama + ". Status Ojek : " + status + ", id Ojek: " +id + " Nomer Plat "+no_plat+" , Nama Pelanggan : "+ pesanan_sekarang.getPelanggan().getNama();
+    
+            }
+      
         }
 }
 

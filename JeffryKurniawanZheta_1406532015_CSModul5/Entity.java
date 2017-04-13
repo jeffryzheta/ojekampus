@@ -67,8 +67,8 @@ public abstract class Entity implements Wear
      * @return damage merupakan damage yang dihasilkan
      */     
 protected int getDamage(double def, double opRank){
-    double damage = (1+ (((((2*level)/5)+2)*attack*(weaponDmg/armorDef))/50))*opRank*def;
-    return (int) damage;
+    int power=1;
+    return(int)(1+((((2*level)/5)+2)*getRank().getAttackPower()*(int)(attack/defense)/50)*def*opRank);
 }
      /**
      * An example of a method - replace this comment with your own
