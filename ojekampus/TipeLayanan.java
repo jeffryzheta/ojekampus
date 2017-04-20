@@ -2,29 +2,29 @@
 /**
  * Enumeration class TipeLayanan - write a description of the enum class here
  * 
- * @author (your name here)
+ * @author Jeffry Kurniawan Zheta
  * @version (version number or date here)
  */
 public enum TipeLayanan
 {
-    AntarBarang("Antar Barang"),
-    AntarOrang("Antar Orang"), 
-    BeliBarang("Beli Barang"); 
+  AntarOrang("Antar Orang"),
+  AntarBarang("Antar Barang"),
+  BeliBarang("Beli Barang");  
+  
+  private String deskripsi;
+  
+  TipeLayanan (String deskripsi) 
+  {
+     this.deskripsi=deskripsi;
+  }
     
-    private String deskripsi;
-    
-    TipeLayanan(String deskripsi) {
-      this.deskripsi=deskripsi;  
-    } 
-    
-     public String getdeskripsi()
+  public String getdeskripsi()
   {
      return deskripsi;
   }
-    
-    public String toString() 
-    { 
-        return deskripsi;
-        
-    }
+  
+  public String toString()
+  {
+     return deskripsi;
+  }
 }

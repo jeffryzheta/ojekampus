@@ -1,89 +1,97 @@
 
 /**
- * Write a description of class DatabasePesanan here.
- * class ini digunakan untuk menambahkan ke data base pesanan yang sudah di buat dan menghapusnya juga
  * @author Jeffry Kurniawan Zheta
- * @version 3/4/2017
+ * @version 4 Maret 2017
+ * Class DatabasePesanan adalah class yang digunakan untuk memanggil objek DatabasePesanan
+ * Objek DatabasePesanan dipanggil untuk menyimpan data pesanan.
  */
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class DatabasePesanan
 {
-    private static ArrayList<Pesanan> list_pesanan= new ArrayList<Pesanan>();
-    /**
-     * @param nothing
-     * @return nothing
-     */
-    public DatabasePesanan() {
-     // instance variables - replace the example below with your own
-     
-    } 
-     /**
-      * @param pesan berisi informasi pesanan yang diambil dari class Pesanan dan dimasukkan ke DB 
-      * @return true berarti database akan siap dimasukkan setiap saat 
-      */
-    public static boolean addPesanan(Pesanan pesan) throws PesananSudahAdaException {
-
-      for (Pesanan list : list_pesanan) {
-           if( list.getPelanggan().equals(list.getPelanggan())) {
-               if(list.getPelanggan().getID()== pesan.getPelanggan().getID());
-               throw new PesananSudahAdaException(pesan);
-               //return false;
-           }
-       }
-       
-       list_pesanan.add(pesan);
-       return true;
-      
-    } 
-    public static boolean hapusPesanan (Pesanan pesan) throws PesananTidakDitemukanException{
-        for (Pesanan list : list_pesanan) {
-           if( list.getPelanggan().equals(list.getPelanggan())) {
-               if(list.getPelanggan().getID()== pesan.getPelanggan().getID());
-              list_pesanan.remove(list);
-               return true;
-           }
-       } 
-       throw new PesananTidakDitemukanException(pesan);
-            //return false;
-    } 
-     /**
-      * @param pesan kali ini digunakan untuk menunjukkan yang mana yang dihapus 
-      * @return true boolean yang berarti siap di hapus setiap saat 
-      */
-   public static boolean hapusPesanan(Pelanggan pengguna) throws PesananOlehPelangganDitemukanException { 
-        /*pesan = list_pesanan;
-        list_pesanan=null;
-        System.out.println("pehapusan pemesanan dari list berhasil dilakukan");*/
-       for (Pesanan list : list_pesanan) {
-           if(pengguna.equals(list.getPelanggan())) {
-               list_pesanan.remove(list);
-               return true;
+    // instance variables - replace the example below with your own
+    private static ArrayList<Pesanan> listPesanan = new ArrayList<>();
+    /** Method ini berfungsi untuk menghapus pesanan 
+    * @return true, berfungsi mengembalikan nilai true pada method.
+    */
+    public static boolean hapusPesanan(Pesanan pesan) throws PesananTidakDitemukanException
+    {
+        Administrasi adm = new Administrasi();
+        for(Pesanan list:listPesanan)
+        {
+            if(list.getPelanggan().equals(pesan.getPelanggan()))
+            {
+                if(!(list.getPelayan().equals(null)))
+                {
+                    adm.pesananSelesai(pesan);
+                    return true;
+                }
             }
-            
-       }
-       throw new PesananOlehPelangganDitemukanException(pengguna);
-       //return false;
-       
-    }
-  /*  public static boolean hapusPesanan(Pelanggan pengguna) {
-        if(pengguna.getNama()==pengguna) { 
-            Pesanan.pesananSelesai();
+            else
+            {
+                throw new PesananTidakDitemukanException(pesan);
+            }
         }
-    }*/
-    public static Pesanan getPesanan(Pelanggan pengguna){ 
-       for (Pesanan list : list_pesanan) {
+        throw new PesananTidakDitemukanException(pesan);
+    }
+    
+    /** Method ini berfungsi untuk menghapus pesanan 
+    * @return true, berfungsi mengembalikan nilai true pada method.
+    */
+    public static boolean hapusPesanan(Pelanggan pengguna) throws PesananOlehPelangganDitemukanException
+    {
+        Administrasi adm = new Administrasi();
+        for(Pesanan list:listPesanan)
+        {
+            if(list.getPelanggan().equals(pengguna))
+            {
+                if(!(list.getPelayan().equals(null)))
+                {
+                    adm.pesananSelesai(pengguna);
+                    return true;
+                }
+            }
+            else
+            {
+                throw new PesananOlehPelangganDitemukanException(pengguna);
+            }
+        }
+        throw new PesananOlehPelangganDitemukanException(pengguna);
+        //mencari pesanan yang dilakukan oleh pelanggan.
+        //Jika pesanan tersebut sudah memiliki pelayan, pesanan tersebut dijadikan selesai secara administrasi.
+    }
+    
+    /** Method ini berfungsi untuk mengambil (get) pesanan 
+    * @return listPesanan, berfungsi mengembalikan nilai ke listPesanan.
+    */
+    public static Pesanan getPesanan(Pelanggan pengguna)
+    {
+        for (Pesanan list : listPesanan) {
            if(pengguna.equals(list.getPelanggan())) {
                return list;
             }
        }
-      
        return null;
-    } 
-     public static ArrayList<Pesanan> getDatabase()
-    {
-        return list_pesanan;
+       //mencari pesanan yang sedang dilakukan pengguna
     }
-        
+    
+    public static ArrayList<Pesanan> getDatabase()
+    {
+        return listPesanan;
+    }
+    
+    public static boolean addPesanan(Pesanan pesan)throws PesananSudahAdaException
+    {
+       for (Pesanan list : listPesanan) {
+           if( pesan.getPelanggan().equals(list.getPelanggan())) 
+           {
+               throw new PesananSudahAdaException(list);
+           }
+       }
+       
+       listPesanan.add(pesan);
+       return true;
+       //Pesanan hanya akan berhasil apabila pelanggan yang memesan tidak sedang melakukan pemesanan lainnya.
+    }
 }
+    

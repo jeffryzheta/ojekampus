@@ -1,105 +1,110 @@
+
+/**
+ * @author Jeffry Kurniawan Zheta
+ * @version 4 Maret 2017
+ * Class Pelanggan adalah class yang digunakan untuk memanggil objek Pelanggan
+ * Objek Pelanggan dipanggil untuk mengambil ID dan Nama Pelanggan
+ */
+
+import java.util.Date;
 import java.util.regex.*;
 import java.util.GregorianCalendar;
-import java.text.SimpleDateFormat; 
-import java.util.Date;
-/**
- * Abstract class User - write a description of the class here
- * 
- * @author (your name here)
- * @version (version number or date here)
- */
-public abstract class User
-{
-    // instance variables - replace the example below with your own
-    protected Date dob;
-    protected String email;
-    protected int id;
-    protected String nama; 
-    protected String telepon;
-    protected GregorianCalendar newCalendar;
-    
-    
 
+public class User
+{
+    protected int id;
+    protected String nama;
+    protected String telefon; 
+    protected String email;
+    protected Date dob;
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y    a sample parameter for a method
-     * @return        the sum of x and y 
+     * Constructor for objects of class Pelanggan
      */
-    public User(int id, String nama)
+    public User (int id, String nama)
     {
-        // put your code here
-        this.id=id;
-        this.nama=nama;
-        
+        this.id = id;
+        this.nama = nama;
+    }
+
+    /** Method ini berfungsi untuk mengambil (get) ID pelanggan
+     * @return id , id dari pelanggan
+     */
+    public int getID()
+    {
+        return id;        
     }
     
-    public Date getDOB(){
-      int year = newCalendar.get(newCalendar.YEAR);
-      int month = newCalendar.get(newCalendar.MONTH);
-      int dayOfMonth  = newCalendar.get(newCalendar.DAY_OF_MONTH);
-      dob =newCalendar.getTime();
-      //SimpleDateFormat format = new SimpleDateFormat("yyyy MMM dd");
-      //System.out.println("Tampilkan Date manual" );
-      //System.out.println("Tanggal lahir pelanggan : "+ year+"/"+month+"/"+dayOfMonth);
-//       System.out.println("Tampilkan tanggal dengan SimpleDateFormat yyyy MM dd");
-//       System.out.println(format.format(dob));
-//       format = new SimpleDateFormat("yyyy--MMM--dd");
-//       System.out.println("Tampilkan tanggal dengan SimpleDateFormat yyy--MM--dd");
-//       System.out.println(format.format(dob));
-      return dob;
-    } 
-    
-    public String getEmail() {
-        return email; 
-    } 
-    
-    public int getID(){
-         return id; 
-    } 
-    
-    public String getNama(){ 
-         return nama; 
-    } 
-    
-    public String getTelepon(){
-        return telepon; 
-    } 
-    public void setDOB(int day, int month, int year){
-      newCalendar = new GregorianCalendar(year, month, day);
-    
-      this.dob=dob;
-    } 
-    
-    public boolean setEmail(String email){
-       Pattern pattern = Pattern.compile("[a-zA-Z]+[a-z]+[@]+[a-z]+.[a-z]+");
-      Matcher matcher = pattern.matcher(email);
-      this.email=email;
-      if(matcher.matches()){
-          return true;
-        }
-          else {
-      return false;
-    }  
+    public Date getDOB()
+    {
+        return dob;
     }
     
-    public void setID(int id){
-        this.id=id;
-    } 
+    /** Method ini berfungsi untuk mengambil (get) nama pelanggan
+    * @return nama , nama dari pelanggan
+    */
+    public String getNama()
+    {
+        return nama;
+    }
     
-    public void setNama(String nama){
-         this.nama=nama;
-    } 
-    
-    public boolean setTelepon(String telepon){ 
-        Pattern pattern = Pattern.compile("0[0-9]{2}([0-9-][0-9]{2,4}){2,3}");
-        Matcher matcher = pattern.matcher(telepon);
-    this.telepon=telepon;
-      if(matcher.matches()){
-          return true;
+    public boolean setTelefon (String telefon)
+    {
+        Pattern pola = Pattern.compile("\\d{1,12}");
+        Matcher sama = pola.matcher(telefon);
+        if(sama.matches())
+        {
+            this.telefon = telefon;
+            return true;
         }
-          else {
-      return false;
-    } 
-    } 
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean setEmail(String email)
+    {
+        Pattern pola = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+        Matcher sama = pola.matcher(email);
+        if(sama.matches())
+        {
+            this.email = email;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public void setDOB (int day, int month, int year)
+    {
+        dob =  new GregorianCalendar(year, month, day).getTime();
+    }
+    
+    /** Method ini berfungsi untuk menentukan (set) id pelanggan
+    * @parameter id , id dari pelanggan
+    */
+    public void setID (int id)
+    {
+        this.id = id;
+    }
+    
+    /** Method ini berfungsi untuk menentukan (set) nama pelanggan
+    * @parameter nama , nama dari pelanggan
+    */
+    public void setNama(String nama)
+    {
+        this.nama = nama;
+    }
+    
+    public String getTelefon()
+    {
+        return telefon;
+    }
+    
+    public String getEmail()
+    {
+        return email;
+    }
 }

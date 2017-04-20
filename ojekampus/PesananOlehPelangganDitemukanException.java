@@ -2,7 +2,7 @@
 /**
  * Write a description of class PesananOlehPelangganDitemukanException here.
  * 
- * @author (your name) 
+ * @author Jeffry Kurniawan Zheta 
  * @version (a version number or a date)
  */
 public class PesananOlehPelangganDitemukanException extends Exception
@@ -15,9 +15,8 @@ public class PesananOlehPelangganDitemukanException extends Exception
      */
     public PesananOlehPelangganDitemukanException(Pelanggan pelanggan_input)
     {
-        // initialise instance variables
-        super("Pesanan oleh") ;
-        this.pelanggan_error=pelanggan_input;
+        super("Pesanan oleh");
+        this.pelanggan_error = pelanggan_input;
     }
 
     /**
@@ -26,10 +25,8 @@ public class PesananOlehPelangganDitemukanException extends Exception
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
-    @Override
     public String getMessage()
     {
-        // put your code here
         return super.getMessage() + pelanggan_error.getNama() + " tidak ditemukan";
     }
 }

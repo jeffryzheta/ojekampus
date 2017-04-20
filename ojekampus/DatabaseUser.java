@@ -1,145 +1,186 @@
 
 /**
- * Write a description of class OjeKampus here.
- * Class ini untuk mengisi databaseUser dari class lain   
- * @author Jeffry Kurniawan Zheta
- * @version 3/4/2017
+ * @author Jeffry Kurniawan Zheta 
+ * @version 4 Maret 2017
+ * Class DatabaseUser adalah class yang digunakan untuk memanggil objek DatabaseUser
+ * Objek DatabaseUSer dipanggil untuk mennyimpan id dan nama.
  */
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.Objects;
 public class DatabaseUser
 {
-    private static ArrayList<Pelanggan> pelanggan_database = new ArrayList<>();
-    private static ArrayList<Ojek> ojek_database = new ArrayList<>();
-    private static int id_ojek_terakhir=1; 
-    private static int id_pelanggan_terakhir=1; 
-   /**
-    * @param baru yang diambil dari class Pelanggan untuk ditambahkan 
-    * @return nothing
-    */
-    public DatabaseUser(Pelanggan baru) {
-    
-    } 
-    /**
-    * @param baru direfer dari class Pelanggan
-    * @return true berarti akan membuat siap di tambahkan kapan saja
-    */
-    public static boolean addPelanggan(Pelanggan baru) {
-       /* pelanggan_database = baru; 
-         System.out.println("Penambahan Pelanggan kedalam database berhasil dilakukan");
-        */
-        for (Pelanggan list : pelanggan_database) {
-            if(baru.getID()==list.getID() && list instanceof Pelanggan) {
-               System.out.println("\n-----------Gagal memasukkan ke database--------------\n");
-               return false;
-
+    // instance variables - replace the example below with your own
+    private static ArrayList<User> user_database = new ArrayList<User>();
+    private static int id_ojek_terakhir = 1;
+    private static int id_pelanggan_terakhir = 1;
+    /** Method ini berfungsi untuk menambah pelanggan 
+    * @return true, berfungsi mengembalikan nilai true pada method.
+    */ 
+    public static boolean addPelanggan (Pelanggan baru)
+    {
+        for(User list : user_database)
+        {
+            if(baru.getID()==list.getID())
+            {
+                if(list instanceof Pelanggan)
+                {
+                    System.out.println("Penambahan pelanggan ke database tidak berhasil dilakukan");
+                    return false;
+                }
             }
         }
         
-        pelanggan_database.add(baru);
-        id_pelanggan_terakhir=baru.getID();
-        System.out.println("\n-----------Berhasil memasukkan ke database--------------\n");
+        user_database.add(baru);
         id_pelanggan_terakhir++;
-        return true;
-       
-    } 
-    
-    /**
-    * @param id direfer dari class Pelanggan
-    * @return true berarti akan membuat siap di dihapus kapan saja
-    */
-    public static boolean removePelanggan(int id) {
-        for (Pelanggan list : pelanggan_database) {
-            if(id == list.getID() && list instanceof Pelanggan) {
-                pelanggan_database.remove(list);
-                return true;
-            }
-        }
-        return false; 
-    } 
-    /**
-    * @param baru direfer dari class Ojek
-    * @return true berarti akan membuat siap di tambahkan kapan saja
-    */
-    public static boolean addOjek(Ojek baru) {
-     //   ojek_database = baru; 
-     for (Ojek list : ojek_database) {
-            if(baru.getID()==list.getID() && list instanceof Ojek) {
-                System.out.println("Ojek baru gagal ditambahkan ke dalam database");
-                return false;
-            }
-        }
-        ojek_database.add(baru);
-        id_ojek_terakhir=baru.getID();
-        System.out.println("Ojek baru berhasil ditambahkan ke dalam database");
-        id_ojek_terakhir++;
-        return true; 
-    } 
-     /**
-    * @param id direfer dari class Ojek
-    * @return true berarti akan membuat siap di dihapus kapan saja
-    */
-    public static boolean removeOjek(int id) {
-        for (Ojek list : ojek_database) {
-            if(id == list.getID() && list instanceof Ojek) {
-                ojek_database.remove(list);
-                return true;
-            }
-        }
-        return false;
-    } 
-    /**
-    * @param nothing
-    * @return id yang terisi pada ojek yang terakhir
-    */
-    public static int getIDOjekTerakhir(){
+        System.out.println("Penambahan pelanggan ke database sudah berhasil dilakukan ");
         
-        return id_ojek_terakhir; 
-    } 
-    /**
-    * @param nothing
-    * @return id yang terisi pada pelanggan yang terakhir
-    */
-    public static int getIDPelangganTerakhir(){
-        return id_pelanggan_terakhir;
-
+        return true;
     }
     
-    public static ArrayList<Ojek>  getOjekDatabase() {
+    /** Method ini berfungsi untuk menghapus pelanggan 
+    * @return true, berfungsi mengembalikan nilai true pada method.
+    */
+    public static boolean removePelanggan (int id)
+    {
+        for(User list : user_database)
+        {
+            if(id == list.getID())
+            {
+                if(list instanceof Pelanggan)
+                {
+                    user_database.remove(list);
+                    return true;
+                }
+            }
+        }
         
+        return false;
+    }
+    
+    /** Method ini berfungsi untuk menambah ojek 
+    * @return true, berfungsi mengembalikan nilai true pada method.
+    */
+    public static boolean addOjek (Ojek baru)
+    {
+        for(User list : user_database)
+        {
+            if(baru.getID()==list.getID())
+            {
+                if(list instanceof Ojek)
+                {
+                    System.out.println("Penambahan ojek ke database tidak berhasil dilakukan");
+                    return false;
+                }
+            }
+        }
+        
+        user_database.add(baru);
+        id_ojek_terakhir++;
+        System.out.println("Penambahan ojek ke database berhasil dilakukan");
+        
+        return true;
+    }
+    
+    /** Method ini berfungsi untuk menghapus ojek 
+    * @return true, berfungsi mengembalikan nilai true pada method.
+    */
+    public static boolean removeOjek (int id)
+    {
+        for(User list : user_database)
+        {
+            if(id == list.getID())
+            {
+                if(list instanceof Ojek)
+                {
+                    user_database.remove(list);
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+    
+    /** Method ini berfungsi untuk mengambil (get) id dari ojek terakhir
+    * @return id_ojek_terakhir, berfungsi mengembalikan nilai id dari ojek terakhir.
+    */
+    public static int getIDOjekTerakhir()
+    {
+        return id_ojek_terakhir;
+    }
+    
+    /** Method ini berfungsi untuk mengambil (get) id dari pelanggan terakhir
+    * @return id_pelanggan_terakhir, berfungsi mengembalikan nilai id dari pelanggan terakhir.
+    */
+    public static int getIDPelangganTerakhir()
+    {
+        return id_pelanggan_terakhir;
+    }
+    
+    /** Method ini berfungsi untuk mengambil (get) nama dari ojek
+    * @return ojek_database, berfungsi mengembalikan nilai nama dari ojek.
+    */
+    public static Ojek getUserOjek(int id)
+    {
+        for (User list : user_database) 
+        {
+            if(id == (list.getID())) 
+            {
+                if(list instanceof Ojek)
+                {
+                    return (Ojek)list;
+                }
+            }
+        }
+        
+        return null;
+    }
+
+    /** Method ini berfungsi untuk mengambil (get) nama dari pelanggan
+    * @return pelanggan_database, berfungsi mengembalikan nilai nama dari pelanggan.
+    */
+    public static Pelanggan getUserPelanggan(int id)
+    {
+        for (User list : user_database) 
+        {
+            if(id == (list.getID())) 
+            {
+                if(list instanceof Pelanggan)
+                {
+                    return (Pelanggan)list;
+                }
+            }
+        }
+        
+        return null;
+    }
+    
+    public static ArrayList<Ojek> getOjekDatabase()
+    {
+        ArrayList<Ojek> ojek_database = new ArrayList<Ojek>();
+        
+        for(User list : user_database)
+        {
+            if(list instanceof Ojek)
+            {
+                ojek_database.add((Ojek)list);
+            }
+        }
         return ojek_database;
     }
-     public static ArrayList<Pelanggan> getPelangganDatabase() {
+    
+    public static ArrayList<Pelanggan> getPelangganDatabase()
+    {
+        ArrayList<Pelanggan> pelanggan_database = new ArrayList<Pelanggan>();
+        
+        for(User list : user_database)
+        {
+            if(list instanceof Pelanggan)
+            {
+                pelanggan_database.add((Pelanggan)list);
+            }
+        }
         
         return pelanggan_database;
     }
-    /**
-    * @param nothing
-    * @return data dalam database 
-    */
-    public static Ojek getUserOjek(int id) 
-    { 
-         for (Ojek list : ojek_database) {
-            if(id == list.getID() && list instanceof Ojek) {
-                return list;
-            }
-        }
-        return null;
-        //return ojek_database;
-    }
-     /**
-    * @param nothing
-    * @return data dalam database 
-    */
-    public static Pelanggan getUserPelanggan(int id){ 
-         for (Pelanggan list : pelanggan_database) {
-            if(id == list.getID() && list instanceof Pelanggan) {
-                return list;
-            }
-        }
-        return null;
-        //return pelanggan_database;
-    } 
-        
 }
-   
