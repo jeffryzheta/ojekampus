@@ -123,9 +123,9 @@ public class Administrasi
     
     public static void printAllDatabase()
     {
-        System.out.println("Database Pesanan: " + DatabasePesanan.getDatabase());
-        System.out.println("Database Ojek: " + DatabaseUser.getOjekDatabase());
-        System.out.println("Database Pelanggan: " + DatabaseUser.getPelangganDatabase());
+        System.out.println("Database Pesanan: " + DatabasePesanan.getDatabase() +"\n");
+        System.out.println("Database Ojek: " + DatabaseUser.getOjekDatabase()+"\n");
+        System.out.println("Database Pelanggan: " + DatabaseUser.getPelangganDatabase()+"\n");
     }
     
     public static void printOjekDatabase()

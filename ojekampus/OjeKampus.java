@@ -16,6 +16,7 @@ public class OjeKampus
     //public static Pesanan pes_mikoriza;
     //public static Administrasi administrasi;
     //private TipeLayanan layanan;
+    public SistemPengawas sistem; 
     /**
      * Constructor for objects of class OjeKampus
      */
@@ -27,8 +28,9 @@ public class OjeKampus
        * 
        */
     public static void main (String [] args)
-    {        
-        Lokasi newLokasi1 = new Lokasi("McDonalds",2,11,"Kelapa Dua");
+    {    
+    StartSistemPengawas(100);
+   Lokasi newLokasi1 = new Lokasi("McDonalds",2,11,"Kelapa Dua");
    Lokasi newLokasi2 = new Lokasi("KFC", 5,7,"Lenteng Agung");
    Lokasi newLokasi3 = new Lokasi("Kost Pinky",8,19,"Kukusan Teknik UI"); // digunakan untuk menambahkan lokasi awal ke dalam per_zheta_awal dengan memanggil class Lokasi
    Lokasi newLokasi4 = new Lokasi("Es Pocong",14,9, "Jalan Margonda"); //digunakan untuk menambahkan lokasi akhir ke dalam per_zheta_akhir dengan memanggil class Lokasi
@@ -87,7 +89,7 @@ public class OjeKampus
    Administrasi.printAllDatabase();
    
    for (int i = 0;i<3;i++){
-       Administrasi.jalankanSistemPenugas();
+       MenungguSistem(100);
        }
        
     System.out.println("====================================================\n");
@@ -158,4 +160,19 @@ public class OjeKampus
     public static void registrasiPengguna()
     {
     }
+    public static void StartSistemPengawas(int waktu_cek) {
+      SistemPengawas awas = new SistemPengawas("Thread", 100); 
+      awas.start();
+    } 
+    
+    public static void MenungguSistem(int a){
+        try { 
+           Thread.sleep(a);
+            Administrasi.jalankanSistemPenugas();
+        } 
+           catch (InterruptedException e)
+           { 
+             System.out.println("System interrupted.");
+            }
+    } 
 }
