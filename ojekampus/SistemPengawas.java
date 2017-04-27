@@ -10,7 +10,7 @@ public class SistemPengawas implements Runnable
     // instance variables - replace the example below with your own
     private Thread t;
     private String ThreadName;
-    private boolean program_run=true;
+    private static boolean program_run;
     private int waktu_cek;
 
     /**
@@ -21,6 +21,7 @@ public class SistemPengawas implements Runnable
         // initialise instance variables
         this.ThreadName=name;
         this.waktu_cek=waktu_cek;
+        this.program_run=true;
         System.out.println("Creating " + ThreadName);
     }
 
@@ -33,12 +34,12 @@ public class SistemPengawas implements Runnable
     public void run()
     {
         // put your code here
-        while(program_run==true){
+        while(program_run){
             System.out.println("Running " + ThreadName );
             
             try{
-                Administrasi.jalankanSistemPenugas();    
-                Thread.sleep(100);
+                  Thread.sleep(waktu_cek);
+                  Administrasi.jalankanSistemPenugas();  
                     }catch(InterruptedException e){
                    System.out.println("Thread " + ThreadName + " interrupted.");
                 }
@@ -54,8 +55,13 @@ public class SistemPengawas implements Runnable
     public void start()
     {
         // put your code here
+       
         System.out.println( "Starting " +  ThreadName );
-    }
+        if(t==null){ 
+            t = new Thread (this, ThreadName);
+            t.start();
+        }
+     } 
      /**
      * An example of a method - replace this comment with your own
      * 
@@ -65,6 +71,15 @@ public class SistemPengawas implements Runnable
     public void join() throws Exception
     {
         // put your code here
-        t.join();
+        try {
+            t.join();
+            
+        } catch (InterruptedException e) { 
+          System.out.println("false");   
+        } 
+    }
+    
+    public static void exit() {
+        program_run=false;
     }
 }

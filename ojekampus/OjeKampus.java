@@ -16,7 +16,8 @@ public class OjeKampus
     //public static Pesanan pes_mikoriza;
     //public static Administrasi administrasi;
     //private TipeLayanan layanan;
-    public SistemPengawas sistem; 
+
+    public static SistemPengawas sistem; 
     /**
      * Constructor for objects of class OjeKampus
      */
@@ -29,7 +30,7 @@ public class OjeKampus
        */
     public static void main (String [] args)
     {    
-    StartSistemPengawas(100);
+  
    Lokasi newLokasi1 = new Lokasi("McDonalds",2,11,"Kelapa Dua");
    Lokasi newLokasi2 = new Lokasi("KFC", 5,7,"Lenteng Agung");
    Lokasi newLokasi3 = new Lokasi("Kost Pinky",8,19,"Kukusan Teknik UI"); // digunakan untuk menambahkan lokasi awal ke dalam per_zheta_awal dengan memanggil class Lokasi
@@ -88,13 +89,16 @@ public class OjeKampus
     }
    Administrasi.printAllDatabase();
    
-   for (int i = 0;i<3;i++){
-       MenungguSistem(100);
-       }
-       
+  
     System.out.println("====================================================\n");
     System.out.println("==================Hasil Print Data==================\n");
     System.out.println("====================================================");
+    StartSistemPengawas(100);
+    MenungguSistem(300);
+    sistem.exit();
+    MenungguSistem(15);
+    
+    System.out.println("===================================================="); 
     System.out.println("\nSystem Penugas pada program ini berjalan lancar    :"); 
     System.out.println("====================================================");
     Administrasi.printAllDatabase();
@@ -161,14 +165,13 @@ public class OjeKampus
     {
     }
     public static void StartSistemPengawas(int waktu_cek) {
-      SistemPengawas awas = new SistemPengawas("Thread", 100); 
-      awas.start();
+      sistem = new SistemPengawas("Thread", waktu_cek); 
+      sistem.start();
     } 
     
     public static void MenungguSistem(int a){
         try { 
            Thread.sleep(a);
-            Administrasi.jalankanSistemPenugas();
         } 
            catch (InterruptedException e)
            { 
