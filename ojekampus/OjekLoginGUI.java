@@ -17,157 +17,182 @@ import javax.swing.*;
 
 public class OjekLoginGUI extends JFrame {
 
-	private JMenuBar menuBar;
-	private JButton button1;
-	private JButton button2;
-	private JButton button3;
-	private JLabel label1;
-	private JLabel label2;
-	private JLabel label3;
-	private JTextField textfield1;
-	private JTextField textfield2;
+    private JMenuBar menuBar;
+    private JButton button7;
+    private JButton button8;
+    private JButton button9;
+    private JLabel label1;
+    private JLabel label6;
+    private JLabel label7;
+    private JLabel label8;
+    private JTextField textfield3;
+    private JTextField textfield4;
+    private Ojek nOjek;
+    //Constructor 
+    public OjekLoginGUI(){
 
-	//Constructor 
-	public OjekLoginGUI(){
+        this.setTitle("GUI_project");
+        this.setSize(500,400);
+        //menu generate method
+        generateMenu();
+        this.setJMenuBar(menuBar);
 
-		this.setTitle("OjekLoginGUI");
-		this.setSize(500,400);
-		//menu generate method
-		generateMenu();
-		this.setJMenuBar(menuBar);
-
-		//pane with null layout
-		JPanel contentPane = new JPanel(null);
-		contentPane.setPreferredSize(new Dimension(500,400));
-		contentPane.setBackground(new Color(192,192,192));
-
-
-		button1 = new JButton();
-		button1.setBounds(337,82,90,35);
-		button1.setBackground(new Color(214,217,223));
-		button1.setForeground(new Color(0,0,0));
-		button1.setEnabled(true);
-		button1.setFont(new Font("sansserif",0,12));
-		button1.setText("Enter");
-		button1.setVisible(true);
-
-		button2 = new JButton();
-		button2.setBounds(105,253,90,35);
-		button2.setBackground(new Color(214,217,223));
-		button2.setForeground(new Color(0,0,0));
-		button2.setEnabled(true);
-		button2.setFont(new Font("sansserif",0,12));
-		button2.setText("Accept");
-		button2.setVisible(true);
-
-		button3 = new JButton();
-		button3.setBounds(272,255,90,35);
-		button3.setBackground(new Color(214,217,223));
-		button3.setForeground(new Color(0,0,0));
-		button3.setEnabled(true);
-		button3.setFont(new Font("sansserif",0,12));
-		button3.setText("Decline");
-		button3.setVisible(true);
-
-		label1 = new JLabel();
-		label1.setBounds(183,33,90,35);
-		label1.setBackground(new Color(214,217,223));
-		label1.setForeground(new Color(0,0,0));
-		label1.setEnabled(true);
-		label1.setFont(new Font("SansSerif",0,16));
-		label1.setText("Ojek Log-In");
-		label1.setVisible(true);
-
-		label2 = new JLabel();
-		label2.setBounds(58,83,90,35);
-		label2.setBackground(new Color(214,217,223));
-		label2.setForeground(new Color(0,0,0));
-		label2.setEnabled(true);
-		label2.setFont(new Font("sansserif",0,12));
-		label2.setText("ID");
-		label2.setVisible(true);
-
-		label3 = new JLabel();
-		label3.setBounds(182,152,154,36);
-		label3.setBackground(new Color(214,217,223));
-		label3.setForeground(new Color(0,0,0));
-		label3.setEnabled(true);
-		label3.setFont(new Font("sansserif",0,12));
-		label3.setText("Informasi Pesanan");
-		label3.setVisible(true);
-
-		textfield1 = new JTextField();
-		textfield1.setBounds(135,85,190,30);
-		textfield1.setBackground(new Color(255,255,255));
-		textfield1.setForeground(new Color(0,0,0));
-		textfield1.setEnabled(true);
-		textfield1.setFont(new Font("sansserif",0,12));
-		textfield1.setText("");
-		textfield1.setVisible(true);
-
-		textfield2 = new JTextField();
-		textfield2.setBounds(176,200,120,30);
-		textfield2.setBackground(new Color(255,255,255));
-		textfield2.setForeground(new Color(0,0,0));
-		textfield2.setEnabled(true);
-		textfield2.setFont(new Font("sansserif",0,12));
-		textfield2.setText("");
-		textfield2.setVisible(true);
-
-		//adding components to contentPane panel
-		contentPane.add(button1);
-		contentPane.add(button2);
-		contentPane.add(button3);
-		contentPane.add(label1);
-		contentPane.add(label2);
-		contentPane.add(label3);
-		contentPane.add(textfield1);
-		contentPane.add(textfield2);
-
-		//adding panel to JFrame and seting of window position and close operation
-		this.add(contentPane);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setLocationRelativeTo(null);
-		this.pack();
-		this.setVisible(true);
-	}
-
-	//method for generate menu
-	public void generateMenu(){
-		menuBar = new JMenuBar();
-
-		JMenu file = new JMenu("File");
-		JMenu tools = new JMenu("Tools");
-		JMenu help = new JMenu("Help");
-
-		JMenuItem open = new JMenuItem("Open   ");
-		JMenuItem save = new JMenuItem("Save   ");
-		JMenuItem exit = new JMenuItem("Exit   ");
-		JMenuItem preferences = new JMenuItem("Preferences   ");
-		JMenuItem about = new JMenuItem("About   ");
+        //pane with null layout
+        JPanel contentPane = new JPanel(null);
+        contentPane.setPreferredSize(new Dimension(500,400));
+        contentPane.setBackground(new Color(192,192,192));
 
 
-		file.add(open);
-		file.add(save);
-		file.addSeparator();
-		file.add(exit);
-		tools.add(preferences);
-		help.add(about);
+        button7 = new JButton();
+        button7.setBounds(330,90,110,40);
+        button7.setBackground(new Color(214,217,223));
+        button7.setForeground(new Color(0,0,0));
+        button7.setEnabled(true);
+        button7.setFont(new Font("SansSerif",0,14));
+        button7.setText("Enter");
+        button7.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                String inID = textfield3.getText();
+                int id = Integer.parseInt(inID);
+                nOjek = DatabaseUser.getUserOjek(id);
+                if(nOjek == null){
+                    JOptionPane.showMessageDialog(null, "Id yang dimasukkan tidak terdaftar");
+                    textfield4.setText(nOjek.getStatus().toString());
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Ojek ditemukan");
+                }
+                
+            }
+        });
+        button7.setVisible(true);
 
-		menuBar.add(file);
-		menuBar.add(tools);
-		menuBar.add(help);
-	}
+        button8 = new JButton();
+        button8.setBounds(160,280,100,40);
+        button8.setBackground(new Color(214,217,223));
+        button8.setForeground(new Color(0,0,0));
+        button8.setEnabled(true);
+        button8.setFont(new Font("SansSerif",0,14));
+        button8.setText("Accept");
+        button8.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //Administrasi.ojekAmbilPesanan(
+            }
+        });
+        button8.setVisible(true);
+
+        button9 = new JButton();
+        button9.setBounds(290,280,100,40);
+        button9.setBackground(new Color(214,217,223));
+        button9.setForeground(new Color(0,0,0));
+        button9.setEnabled(true);
+        button9.setFont(new Font("sansserif",0,12));
+        button9.setText("Decline");
+        button9.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                Administrasi.ojekLepasPesanan(nOjek);
+            }
+        });
+        button9.setVisible(true);
+
+        label1 = new JLabel();
+        label1.setBounds(200,30,200,40);
+        label1.setBackground(new Color(214,217,223));
+        label1.setForeground(new Color(0,0,0));
+        label1.setEnabled(true);
+        label1.setFont(new Font("SansSerif",0,22));
+        label1.setText("Ojek Log-In");
+        label1.setVisible(true);
+
+        label6 = new JLabel();
+        label6.setBounds(20,90,90,35);
+        label6.setBackground(new Color(214,217,223));
+        label6.setForeground(new Color(0,0,0));
+        label6.setEnabled(true);
+        label6.setFont(new Font("SansSerif",0,14));
+        label6.setText("ID");
+        label6.setVisible(true);
+
+        label7 = new JLabel();
+        label7.setBounds(75,90,90,35);
+        label7.setBackground(new Color(214,217,223));
+        label7.setForeground(new Color(0,0,0));
+        label7.setEnabled(true);
+        label7.setFont(new Font("sansserif",0,12));
+        label7.setText(":");
+        label7.setVisible(true);
+
+        label8 = new JLabel();
+        label8.setBounds(200,180,150,35);
+        label8.setBackground(new Color(214,217,223));
+        label8.setForeground(new Color(0,0,0));
+        label8.setEnabled(true);
+        label8.setFont(new Font("SansSerif",0,16));
+        label8.setText("Informasi Pesanan");
+        label8.setVisible(true);
+
+        textfield3 = new JTextField();
+        textfield3.setBounds(90,90,200,40);
+        textfield3.setBackground(new Color(255,255,255));
+        textfield3.setForeground(new Color(0,0,0));
+        textfield3.setEnabled(true);
+        textfield3.setFont(new Font("sansserif",0,12));
+        textfield3.setText("No ID");
+        textfield3.setVisible(true);
+
+        textfield4 = new JTextField();
+        textfield4.setBounds(190,220,150,40);
+        textfield4.setBackground(new Color(255,255,255));
+        textfield4.setForeground(new Color(0,0,0));
+        textfield4.setEnabled(true);
+        textfield4.setFont(new Font("sansserif",0,12));
+        textfield4.setText("Status");
+        textfield4.setVisible(true);
+
+        //adding components to contentPane panel
+        contentPane.add(button7);
+        contentPane.add(button8);
+        contentPane.add(button9);
+        contentPane.add(label1);
+        contentPane.add(label6);
+        contentPane.add(label7);
+        contentPane.add(label8);
+        contentPane.add(textfield3);
+        contentPane.add(textfield4);
+
+        //adding panel to JFrame and seting of window position and close operation
+        this.add(contentPane);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    //method for generate menu
+    public void generateMenu(){
+        menuBar = new JMenuBar();
+
+        JMenu file = new JMenu("File");
+        JMenu tools = new JMenu("Tools");
+        JMenu help = new JMenu("Help");
+
+        JMenuItem open = new JMenuItem("Open   ");
+        JMenuItem save = new JMenuItem("Save   ");
+        JMenuItem exit = new JMenuItem("Exit   ");
+        JMenuItem preferences = new JMenuItem("Preferences   ");
+        JMenuItem about = new JMenuItem("About   ");
 
 
+        file.add(open);
+        file.add(save);
+        file.addSeparator();
+        file.add(exit);
+        tools.add(preferences);
+        help.add(about);
 
-	 public static void main(String[] args){
-		System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new OjekLoginGUI();
-			}
-		});
-	}
+        menuBar.add(file);
+        menuBar.add(tools);
+        menuBar.add(help);
+    }
 
 }
