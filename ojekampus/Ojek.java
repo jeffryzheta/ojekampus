@@ -19,7 +19,7 @@ public class Ojek extends User
     /**
      * Constructor for objects of class Ojek
      */
-    public Ojek(int id, String nama, Lokasi posisi_sekarang, StatusOjek status)
+    public Ojek(int id, String nama, Lokasi posisi_sekarang, String plat, String telp)
     {
        super(id, nama);
        this.posisi_sekarang = posisi_sekarang;

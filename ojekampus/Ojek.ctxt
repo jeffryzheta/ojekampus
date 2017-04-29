@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=id\ nama\ posisi_sekarang\ status
-comment0.target=Ojek(int,\ java.lang.String,\ Lokasi,\ StatusOjek)
+comment0.params=id\ nama\ posisi_sekarang\ plat\ telp
+comment0.target=Ojek(int,\ java.lang.String,\ Lokasi,\ java.lang.String,\ java.lang.String)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Ojek\r\n
 comment1.params=pesan
 comment1.target=void\ setPesanan(Pesanan)

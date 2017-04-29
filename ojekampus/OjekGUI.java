@@ -45,6 +45,13 @@ public class OjekGUI extends JFrame {
 		button1.setFont(new Font("sansserif",0,12));
 		button1.setText("Registrasi");
 		button1.setVisible(true);
+		  button1.addActionListener(new ActionListener()
+        { 
+            
+            public void actionPerformed(ActionEvent e) { 
+              new OjekRegistGUI();
+              }
+          });
 
 		button2 = new JButton();
 		button2.setBounds(166,168,90,35);
@@ -54,6 +61,13 @@ public class OjekGUI extends JFrame {
 		button2.setFont(new Font("sansserif",0,12));
 		button2.setText("Log-In");
 		button2.setVisible(true);
+		  button2.addActionListener(new ActionListener()
+        { 
+            
+            public void actionPerformed(ActionEvent e) { 
+              new OjekLoginGUI();
+              }
+          });
 
 		label1 = new JLabel();
 		label1.setBounds(192,43,90,35);
