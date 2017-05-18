@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Cloud()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Cloud\r\n
+comment1.params=
+comment1.target=java.sql.Connection\ connect()
+comment1.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
+comment2.params=
+comment2.target=java.util.ArrayList\ getOjekDatabase()
+comment3.params=
+comment3.target=java.util.ArrayList\ getPelangganDatabase()
+comment4.params=
+comment4.target=int\ getLastOjek()
+comment5.params=
+comment5.target=int\ getLastPelanggan()
+comment6.params=input
+comment6.target=boolean\ addPelanggan(Pelanggan)
+comment7.params=input
+comment7.target=boolean\ addOjek(Ojek)
+numComments=8

@@ -11,6 +11,8 @@ public class DatabaseUser
 {
     // instance variables - replace the example below with your own
     private static ArrayList<User> user_database = new ArrayList<User>();
+    private static ArrayList<Ojek> ojek_database = new ArrayList<Ojek>();
+    private static ArrayList<Pelanggan> pelanggan_database = new ArrayList<Pelanggan>();
     private static int id_ojek_terakhir = 1;
     private static int id_pelanggan_terakhir = 1;
     /** Method ini berfungsi untuk menambah pelanggan 
@@ -157,7 +159,7 @@ public class DatabaseUser
     
     public static ArrayList<Ojek> getOjekDatabase()
     {
-        ArrayList<Ojek> ojek_database = new ArrayList<Ojek>();
+        
         
         for(User list : user_database)
         {
@@ -167,6 +169,20 @@ public class DatabaseUser
             }
         }
         return ojek_database;
+    }
+    
+    public static ArrayList<Ojek> getInitOjek()
+    {
+        
+        ojek_database = Initiation.getInitOjek();
+       return ojek_database;
+    }
+    
+    public static ArrayList<Pelanggan> getInitPelanggan()
+    {
+  
+        pelanggan_database = Initiation.getInitPelanggan();
+       return pelanggan_database;
     }
     
     public static ArrayList<Pelanggan> getPelangganDatabase()
@@ -182,5 +198,18 @@ public class DatabaseUser
         }
         
         return pelanggan_database;
+    }
+    
+     public static void add_init(Pelanggan baru)
+    {
+        user_database.add(baru);
+        
+        
+    }
+    
+    public static void add_init(Ojek baru)
+    {
+        user_database.add(baru);
+        
     }
 }

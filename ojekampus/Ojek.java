@@ -11,19 +11,47 @@ import java.util.GregorianCalendar;
 
 public class Ojek extends User
 {
-    private StatusOjek status;    
-    private Lokasi posisi_sekarang;
+    private static StatusOjek status;    
+    private static Lokasi posisi_sekarang;
     private Pesanan pesanan_sekarang;
-    private String no_plat;
+    private static String no_plat;
+    
+     /**
+     * Constructor ini digunakan untuk assign awal objek Ojek.
+     * @param id untuk assign awal id ojek
+     * @param nama untuk assign awal nama ojek
+     * @param posisiSekarang untuk assign awal posisi ojek
+     * @return
+     */
+    public Ojek(int id, String nama)
+    {
+        super(id,nama);
+        this.id=id;
+        this.nama=nama;
+    }
 
+//     /**
+//      * Constructor for objects of class Ojek
+//      */
+//     public Ojek(int id, String nama, Lokasi posisi_sekarang, String plat, String telp)
+//     {
+//        super(id, nama, telp);
+//        this.posisi_sekarang = posisi_sekarang;
+//        this.status=status;
+//        this.no_plat = no_plat;
+//     }
+    
     /**
      * Constructor for objects of class Ojek
      */
-    public Ojek(int id, String nama, Lokasi posisi_sekarang, String plat, String telp)
+    public Ojek(int id, String nama, String telefon, String email, String telp, Date dob)
     {
-       super(id, nama);
-       this.posisi_sekarang = posisi_sekarang;
-       this.status=status;
+       super(id, nama, telp);
+       this.no_plat = no_plat;
+       this.telefon=telefon;
+       this.email=email;
+       this.dob=dob;
+
     }
     
      /** Method ini berfungsi untuk menentukan (set) pesanan ojek
@@ -37,7 +65,7 @@ public class Ojek extends User
      /** Method ini berfungsi untuk menentukan (set) posisi Ojek
     * @parameter posisi_sekarang , posisi sekarang dari ojek
     */
-    public void setPosisi(Lokasi sekarang)
+    public static void setPosisi(Lokasi sekarang)
     {
         posisi_sekarang = sekarang;
     }
@@ -69,23 +97,23 @@ public class Ojek extends User
     /** Method ini berfungsi untuk mendapatkan (get) pesanan Ojek
     * @return status , status dari ojek
     */
-    public StatusOjek getStatus()
+    public static StatusOjek getStatus()
     {
         return status;
     }
 
-    public String getNoPlat()
+    public static String getNoPlat()
     {
         return no_plat;
     }
     
-    public boolean setNoPlat (String no_plat)
+    public static boolean setNoPlat (String no_plat)
     {
         Pattern pola = Pattern.compile("\\D\\d{1,4}\\D{2,3}");
         Matcher sama = pola.matcher(no_plat);
         if(sama.matches())
         {
-            this.no_plat = no_plat;
+            no_plat = no_plat;
             return true;
         }
         else

@@ -1,4 +1,4 @@
-
+import java.lang.Enum;
 /**
  * Enumeration class TipeLayanan - write a description of the enum class here
  * 
@@ -22,9 +22,12 @@ public enum TipeLayanan
   {
      return deskripsi;
   }
-  
-  public String toString()
-  {
-     return deskripsi;
-  }
+   public static void main (String[] args)
+    {
+        System.out.println("Tipe Layanan : ");
+        System.out.println(AntarOrang);
+        System.out.println(AntarBarang);
+        System.out.println(BeliBarang);
+    }
+ 
 }

@@ -1,7 +1,9 @@
 #BlueJ class context
-comment0.params=id\ nama\ telefon
-comment0.target=Pelanggan(int,\ java.lang.String,\ java.lang.String)
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Pelanggan\r\n
-comment1.params=
-comment1.target=java.lang.String\ toString()
-numComments=2
+comment0.params=id\ nama\ telefon\ email\ dob
+comment0.target=Pelanggan(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.util.Date)
+comment1.params=id\ nama
+comment1.target=Pelanggan(int,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ ini\ digunakan\ untuk\ assign\ awal\ objek\ Ojek.\r\n\ @param\ id\ untuk\ assign\ awal\ id\ ojek\r\n\ @param\ nama\ untuk\ assign\ awal\ nama\ ojek\r\n\ @param\ posisiSekarang\ untuk\ assign\ awal\ posisi\ ojek\r\n\ @return\r\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

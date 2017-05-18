@@ -1,117 +1,129 @@
-
-/**
- * @author Jeffry Kurniawan Zheta
- * @version 4 Maret 2017
- */
 import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
+import java.awt.event.FocusListener;
+import java.awt.event.FocusEvent;
 import javax.swing.border.Border;
 import javax.swing.*;
+import java.util.Date;
+import java.text.DateFormat;
 
-public class PesananGUI extends JFrame  {
 
-    private JMenuBar menuBar;
-    private JButton button1;
-    private JButton button2;
-    private JComboBox combobox1;
-    private JLabel label1;
-    private JLabel label2;
-    private JLabel label3;
-    private JLabel label4;
-    private JLabel label5;
-    private JLabel label6;
-    private JLabel label7;
-    private JLabel label8;
-    private JTextField textfield1;
-    private JTextField textfield10;
-    private JTextField textfield11;
-    private JTextField textfield12;
-    private JTextField textfield2;
-    private JTextField textfield3;
-    private JTextField textfield4;
-    private JTextField textfield5;
-    private JTextField textfield6;
-    private JTextField textfield7;
-    private JTextField textfield8;
-    private JTextField textfield9;
-  
+/**
+ * Write a description of class PesananGUI here.
+ * 
+ * @author Jeffry Kurniawan Zheta
+ * @version 
+ */
 
-    //Constructor 
-    public PesananGUI(){
+public class PesananGUI extends JFrame {
+    private JButton enter;
+    private JButton pesan;
+    private JLabel biaya;
+    private JLabel id;
+    private JLabel labelpesanan; 
+    private JLabel labellokakhir;
+    private JLabel labellokawal; 
+    private JLabel labelnamaakhir; 
+    private JLabel labelnamaawal; 
+    private JLabel tipeLayanan;
+   
+    private JTextField textid; 
+    private JTextField korxawal;
+    private JTextField koryawal; 
+    private JTextField korxakhir;
+    private JTextField koryakhir;
+    private JTextField lokAwal; 
+    private JTextField lokAkhir;
+    private JTextField ketlokawal;
+    private JTextField ketlokakhir;
+    private JTextField textnamaawal;
+    private JTextField textnamaakhir;
+    private JTextField textbiaya;
+    private JComboBox pilihTipeLayanan;
+    private JLabel copyright;
+    private JLabel jam;
+    private JButton kembali;
 
-        this.setTitle("Pemesanan");
-        this.setSize(500,400);
+    public PesananGUI()
+    {
+        this.setTitle("Pesanan GUI");
+        this.setSize(497,428);
         
-
-        //pane with null layout
-        JPanel contentPane = new JPanel(null);
-        contentPane.setPreferredSize(new Dimension(500,400));
-        contentPane.setBackground(new Color(192,192,192));
-
-
-        button1 = new JButton();
-        button1.setBounds(319,330,90,35);
-        button1.setBackground(new Color(214,217,223));
-        button1.setForeground(new Color(0,0,0));
-        button1.setEnabled(true);
-        button1.setFont(new Font("sansserif",0,12));
-        button1.setText("Pesan");
-        button1.setVisible(true);
-        button1.addActionListener(new ActionListener()
-     {
-        public void actionPerformed(ActionEvent e)
+         jam = new JLabel();
+        jam.setHorizontalAlignment(JLabel.RIGHT);
+        jam.setFont(UIManager.getFont("timesnewroman"));
+        jam.setBounds(90,-190,400,400);
+        jam.setVisible(true);
+        jam_mulai();
+        add(jam);
+            
+        Timer hitung = new Timer(500, new ActionListener() 
+         {
+           @Override
+           public void actionPerformed(ActionEvent e) 
+             {
+                jam_mulai();
+             }
+         });
+   
+        hitung.setRepeats(true);
+        hitung.setCoalesce(true);
+        hitung.setInitialDelay(0);
+        hitung.start();
+        
+        kembali = new JButton();
+        kembali.setBounds(5,5,80,20);
+        kembali.setBackground(new Color(255,255,255));
+        kembali.setEnabled(true);
+        kembali.setFont(new Font("Raleway",0,11));
+        kembali.setText("Kembali");
+        kembali.setActionCommand("Kembali");
+        kembali.setVisible(true);
+        kembali.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent klik) 
             {
-                String IDtext = textfield1.getText();
-                int ID = Integer.parseInt(IDtext);
-                TipeLayanan tipelayanan = (TipeLayanan)combobox1.getSelectedItem();
-                String x1 = textfield2.getText();
-                int x1d = Integer.parseInt(x1);
-                String y1 = textfield3.getText();
-                int y1d = Integer.parseInt(y1);
-                String nama1 = textfield4.getText();
-                String keterangan1 = textfield5.getText();
-                Lokasi lokasi1 = new Lokasi(nama1, x1d, y1d, keterangan1);
-                String x2 = textfield6.getText();
-                int x2d = Integer.parseInt(x2);
-                String y2 = textfield7.getText();
-                int y2d = Integer.parseInt(y2);
-                String nama2 = textfield8.getText();
-                String keterangan2 = textfield9.getText();
-                Lokasi lokasi2 = new Lokasi(nama2, x2d, y2d, keterangan2);
-                String np_awal = textfield10.getText();
-                String np_akhir = textfield11.getText();
-                String biaya = textfield12.getText();
-                int biayax = Integer.parseInt(biaya);
-                Pelanggan pelanggan_now = DatabaseUser.getUserPelanggan(ID);
-                Pesanan newpesanan = new Pesanan(pelanggan_now ,tipelayanan, lokasi1, lokasi2, np_awal, np_akhir, biayax); 
-                try{ 
-                    DatabasePesanan.addPesanan(newpesanan);
-                } catch (PesananSudahAdaException err) {
-                err.getMessage();} 
-               Administrasi.printAllDatabase();
+                 dispose();
+                 new RegistGUI();
             }
         });
         
-        button2 = new JButton();
-        button2.setBounds(319,77,90,35);
-        button2.setBackground(new Color(214,217,223));
-        button2.setForeground(new Color(0,0,0));
-        button2.setEnabled(true);
-        button2.setFont(new Font("sansserif",0,12));
-        button2.setText("Enter");
-        button2.setVisible(true);
-        button2.addActionListener(new ActionListener()
+        JPanel contentPane = new JPanel(null);
+        contentPane.setPreferredSize(new Dimension(497,428));
+        contentPane.setBackground(new Color(204,204,255));
+
+        labelpesanan = new JLabel();
+        labelpesanan.setBounds(43,8,430,76);
+        labelpesanan.setBackground(new Color(255,255,255));
+        labelpesanan.setForeground(new Color(0,0,0));
+        labelpesanan.setEnabled(true);
+        labelpesanan.setFont(new Font("timesnewroman",0,34));
+        labelpesanan.setText("PEMESANAN CUSTOMER");
+        labelpesanan.setVisible(true);
+        
+        biaya = new JLabel();
+        biaya.setBounds(18,322,90,35);
+        biaya.setBackground(new Color(255,255,255));
+        biaya.setForeground(new Color(0,0,0));
+        biaya.setEnabled(true);
+        biaya.setFont(new Font("timesnewroman",0,12));
+        biaya.setText("Biaya");
+        biaya.setVisible(true);
+
+        enter = new JButton();
+        enter.setBounds(387,68,90,35);
+        enter.setBackground(new Color(153,255,153));
+        enter.setForeground(new Color(0,0,0));
+        enter.setEnabled(true);
+        enter.setFont(new Font("timesnewroman",0,12));
+        enter.setText("Enter");
+        enter.setVisible(true);
+        enter.addActionListener(new ActionListener()
      {
         public void actionPerformed(ActionEvent e)
-            {  String IDtext = textfield1.getText();
+            {  String IDtext = textid.getText();
                 int ID = Integer.parseInt(IDtext);
                Pelanggan pelanggan_now = DatabaseUser.getUserPelanggan(ID);
                 if (pelanggan_now!=null) { 
@@ -121,233 +133,429 @@ public class PesananGUI extends JFrame  {
             }
         });
 
-        JComboBox<TipeLayanan> combobox1 = new JComboBox<>();
-        combobox1.setModel(new DefaultComboBoxModel<>(TipeLayanan.values()));
-        combobox1.setBounds(122,113,190,30);
-        combobox1.setBackground(new Color(214,217,223));
-        combobox1.setForeground(new Color(0,0,0));
-        combobox1.setEnabled(true);
-        combobox1.setFont(new Font("sansserif",0,12));
-        combobox1.setVisible(true);
+        id = new JLabel();
+        id.setBounds(20,68,120,35);
+        id.setBackground(new Color(255,255,255));
+        id.setForeground(new Color(0,0,0));
+        id.setEnabled(true);
+        id.setFont(new Font("timesnewroman",0,12));
+        id.setText("ID                    :");
+        id.setVisible(true);
+
+        textid = new JTextField();
+        textid.setBounds(125,68,250,35);
+        textid.setBackground(new Color(255,255,255));
+        textid.setForeground(new Color(0,0,0));
+        textid.setEnabled(true);
+        textid.setFont(new Font("timesnewroman",0,12));
+        textid.setText("");
+        textid.setVisible(true);
+        textid.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                textid.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+
+        tipeLayanan = new JLabel();
+        tipeLayanan.setBounds(20,110,120,35);
+        tipeLayanan.setBackground(new Color(255,255,255));
+        tipeLayanan.setForeground(new Color(0,0,0));
+        tipeLayanan.setEnabled(true);
+        tipeLayanan.setFont(new Font("timesnewroman",0,12));
+        tipeLayanan.setText("Tipe Layanan   :");
+        tipeLayanan.setVisible(true);
         
+        JComboBox<TipeLayanan> pilihTipeLayanan = new JComboBox<>();
+        pilihTipeLayanan.setModel(new DefaultComboBoxModel<>(TipeLayanan.values()));
+        pilihTipeLayanan.setBounds(125,110,250,35);
+        pilihTipeLayanan.setBackground(new Color(255,255,255));
+        pilihTipeLayanan.setForeground(new Color(0,0,0));
+        pilihTipeLayanan.setEnabled(true);
+        pilihTipeLayanan.setFont(new Font("timesnewroman",0,12));
+        pilihTipeLayanan.setVisible(true);
+        
+        labellokakhir = new JLabel();
+        labellokakhir.setBounds(20,194,120,35);
+        labellokakhir.setBackground(new Color(255,255,255));
+        labellokakhir.setForeground(new Color(0,0,0));
+        labellokakhir.setEnabled(true);
+        labellokakhir.setFont(new Font("timesnewroman",0,12));
+        labellokakhir.setText("Lokasi akhir     :");
+        labellokakhir.setVisible(true);
 
-        label1 = new JLabel();
-        label1.setBounds(170,37,175,30);
-        label1.setBackground(new Color(214,217,223));
-        label1.setForeground(new Color(0,0,0));
-        label1.setEnabled(true);
-        label1.setFont(new Font("SansSerif",0,15));
-        label1.setText("Pemesanan Customer");
-        label1.setVisible(true);
+        labellokawal = new JLabel();
+        labellokawal.setBounds(20,151,120,35);
+        labellokawal.setBackground(new Color(255,255,255));
+        labellokawal.setForeground(new Color(0,0,0));
+        labellokawal.setEnabled(true);
+        labellokawal.setFont(new Font("timesnewroman",0,12));
+        labellokawal.setText("Lokasi awal");
+        labellokawal.setVisible(true);
 
-        label2 = new JLabel();
-        label2.setBounds(22,77,90,35);
-        label2.setBackground(new Color(214,217,223));
-        label2.setForeground(new Color(0,0,0));
-        label2.setEnabled(true);
-        label2.setFont(new Font("sansserif",0,12));
-        label2.setText("ID");
-        label2.setVisible(true);
+        labelnamaakhir = new JLabel();
+        labelnamaakhir.setBounds(20,278,120,35);
+        labelnamaakhir.setBackground(new Color(255,255,255));
+        labelnamaakhir.setForeground(new Color(0,0,0));
+        labelnamaakhir.setEnabled(true);
+        labelnamaakhir.setFont(new Font("timesnewroman",0,12));
+        labelnamaakhir.setText("NP Akhir");
+        labelnamaakhir.setVisible(true);
 
-        label3 = new JLabel();
-        label3.setBounds(22,109,90,35);
-        label3.setBackground(new Color(214,217,223));
-        label3.setForeground(new Color(0,0,0));
-        label3.setEnabled(true);
-        label3.setFont(new Font("sansserif",0,12));
-        label3.setText("Tipe Layanan");
-        label3.setVisible(true);
+        labelnamaawal = new JLabel();
+        labelnamaawal.setBounds(20,236,120,35);
+        labelnamaawal.setBackground(new Color(255,255,255));
+        labelnamaawal.setForeground(new Color(0,0,0));
+        labelnamaawal.setEnabled(true);
+        labelnamaawal.setFont(new Font("timesnewroman",0,12));
+        labelnamaawal.setText("NP Awal");
+        labelnamaawal.setVisible(true);
 
-        label4 = new JLabel();
-        label4.setBounds(22,144,90,35);
-        label4.setBackground(new Color(214,217,223));
-        label4.setForeground(new Color(0,0,0));
-        label4.setEnabled(true);
-        label4.setFont(new Font("sansserif",0,12));
-        label4.setText("Lokasi Awal");
-        label4.setVisible(true);
+        korxawal = new JTextField();
+        korxawal.setBounds(125,151,50,35);
+        korxawal.setBackground(new Color(255,255,255));
+        korxawal.setForeground(new Color(0,0,0));
+        korxawal.setEnabled(true);
+        korxawal.setFont(new Font("timesnewroman",0,12));
+        korxawal.setText("x");
+        korxawal.setVisible(true);
+        korxawal.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                korxawal.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        koryawal = new JTextField();
+        koryawal.setBounds(180,151,50,35);
+        koryawal.setBackground(new Color(255,255,255));
+        koryawal.setForeground(new Color(0,0,0));
+        koryawal.setEnabled(true);
+        koryawal.setFont(new Font("timesnewroman",0,12));
+        koryawal.setText("y");
+        koryawal.setVisible(true);
+        koryawal.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                koryawal.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        lokAwal = new JTextField();
+        lokAwal.setBounds(235,151,140,35);
+        lokAwal.setBackground(new Color(255,255,255));
+        lokAwal.setForeground(new Color(0,0,0));
+        lokAwal.setEnabled(true);
+        lokAwal.setFont(new Font("timesnewroman",0,12));
+        lokAwal.setText("Nama Lokasi");
+        lokAwal.setVisible(true);
+        lokAwal.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                lokAwal.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        ketlokawal = new JTextField();
+        ketlokawal.setBounds(380,151,90,35);
+        ketlokawal.setBackground(new Color(255,255,255));
+        ketlokawal.setForeground(new Color(0,0,0));
+        ketlokawal.setEnabled(true);
+        ketlokawal.setFont(new Font("timesnewroman",0,12));
+        ketlokawal.setText("Keterangan");
+        ketlokawal.setVisible(true);
+        ketlokawal.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                ketlokawal.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        korxakhir = new JTextField();
+        korxakhir.setBounds(125,194,50,35);
+        korxakhir.setBackground(new Color(255,255,255));
+        korxakhir.setForeground(new Color(0,0,0));
+        korxakhir.setEnabled(true);
+        korxakhir.setFont(new Font("timesnewroman",0,12));
+        korxakhir.setText("x");
+        korxakhir.setVisible(true);
+        korxakhir.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                korxakhir.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        koryakhir = new JTextField();
+        koryakhir.setBounds(180,194,50,35);
+        koryakhir.setBackground(new Color(255,255,255));
+        koryakhir.setForeground(new Color(0,0,0));
+        koryakhir.setEnabled(true);
+        koryakhir.setFont(new Font("timesnewroman",0,12));
+        koryakhir.setText("y");
+        koryakhir.setVisible(true);
+        koryakhir.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                koryakhir.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        lokAkhir = new JTextField();
+        lokAkhir.setBounds(235,194,140,35);
+        lokAkhir.setBackground(new Color(255,255,255));
+        lokAkhir.setForeground(new Color(0,0,0));
+        lokAkhir.setEnabled(true);
+        lokAkhir.setFont(new Font("timesnewroman",0,12));
+        lokAkhir.setText("Nama Lokasi");
+        lokAkhir.setVisible(true);
+        lokAkhir.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                lokAkhir.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        ketlokakhir = new JTextField();
+        ketlokakhir.setBounds(380,194,90,35);
+        ketlokakhir.setBackground(new Color(255,255,255));
+        ketlokakhir.setForeground(new Color(0,0,0));
+        ketlokakhir.setEnabled(true);
+        ketlokakhir.setFont(new Font("timesnewroman",0,12));
+        ketlokakhir.setText("Keterangan");
+        ketlokakhir.setVisible(true);
+        ketlokakhir.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                ketlokakhir.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        
+        textnamaawal = new JTextField();
+        textnamaawal.setBounds(125, 236, 250, 35);
+        textnamaawal.setBackground(new Color(255,255,255));
+        textnamaawal.setForeground(new Color(0,0,0));
+        textnamaawal.setEnabled(true);
+        textnamaawal.setFont(new Font("timesnewroman",0,12));
+        textnamaawal.setText("Nama Pengguna Awal");
+        textnamaawal.setVisible(true);
+        textnamaawal.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                textnamaawal.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        textnamaakhir = new JTextField();
+        textnamaakhir.setBounds(125, 278, 250, 35);
+        textnamaakhir.setBackground(new Color(255,255,255));
+        textnamaakhir.setForeground(new Color(0,0,0));
+        textnamaakhir.setEnabled(true);
+        textnamaakhir.setFont(new Font("timesnewroman",0,12));
+        textnamaakhir.setText("Nama Pengguna Akhir");
+        textnamaakhir.setVisible(true);
+        textnamaakhir.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                textnamaakhir.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        textbiaya = new JTextField();
+        textbiaya.setBounds(125, 320, 250, 35);
+        textbiaya.setBackground(new Color(255,255,255));
+        textbiaya.setForeground(new Color(0,0,0));
+        textbiaya.setEnabled(true);
+        textbiaya.setFont(new Font("timesnewroman",0,12));
+        textbiaya.setText("Biaya");
+        textbiaya.setVisible(true);
+        textbiaya.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                textbiaya.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        pesan = new JButton();
+        pesan.setBounds(380,362,90,35);
+        pesan.setBackground(new Color(153,255,153));
+        pesan.setForeground(new Color(0,0,0));
+        pesan.setEnabled(true);
+        pesan.setFont(new Font("timesnewroman",0,13));
+        pesan.setText("Pesan");
+        pesan.setVisible(true);
+        pesan.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent klik)
+            {
+                try
+                {
+                    int y = Integer.parseInt(koryawal.getText());
+                    DatabasePesanan.addPesanan(new Pesanan(DatabaseUser.getUserPelanggan(Integer.parseInt(textid.getText())), (TipeLayanan)pilihTipeLayanan.getSelectedItem(), new Lokasi(lokAwal.getText(), Integer.parseInt(korxawal.getText()), y, ketlokawal.getText()), new Lokasi(lokAkhir.getText(), Integer.parseInt(korxakhir.getText()), Integer.parseInt(koryakhir.getText()), ketlokakhir.getText()), textnamaawal.getText(), textnamaakhir.getText(), Integer.parseInt(textbiaya.getText())));
+                    Administrasi.printPesananDatabase();
+                    
+                }
+                catch(PesananSudahAdaException sudah_ada)
+                {
+                    System.out.println(sudah_ada.getMessage());
+                }
+            }
+        });
+        
+        copyright = new JLabel();
+        copyright.setBounds(158,360,200,35);
+        copyright.setBackground(new Color(214,217,223));
+        copyright.setEnabled(true);
+        copyright.setFont(new Font("timesnewroman",0,12));
+        copyright.setText("Copyright @2017 - Jeffry K Zheta");
+        copyright.setVisible(true);
+      
 
-        label5 = new JLabel();
-        label5.setBounds(22,182,90,35);
-        label5.setBackground(new Color(214,217,223));
-        label5.setForeground(new Color(0,0,0));
-        label5.setEnabled(true);
-        label5.setFont(new Font("sansserif",0,12));
-        label5.setText("Lokasi Akhir");
-        label5.setVisible(true);
-
-        label6 = new JLabel();
-        label6.setBounds(22,218,90,35);
-        label6.setBackground(new Color(214,217,223));
-        label6.setForeground(new Color(0,0,0));
-        label6.setEnabled(true);
-        label6.setFont(new Font("sansserif",0,12));
-        label6.setText("NP Awal");
-        label6.setVisible(true);
-
-        label7 = new JLabel();
-        label7.setBounds(22,251,90,35);
-        label7.setBackground(new Color(214,217,223));
-        label7.setForeground(new Color(0,0,0));
-        label7.setEnabled(true);
-        label7.setFont(new Font("sansserif",0,12));
-        label7.setText("NP Akhir");
-        label7.setVisible(true);
-
-        label8 = new JLabel();
-        label8.setBounds(22,283,90,35);
-        label8.setBackground(new Color(214,217,223));
-        label8.setForeground(new Color(0,0,0));
-        label8.setEnabled(true);
-        label8.setFont(new Font("SansSerif",0,12));
-        label8.setText("Biaya");
-        label8.setVisible(true);
-
-        textfield1 = new JTextField();
-        textfield1.setBounds(123,82,190,30);
-        textfield1.setBackground(new Color(255,255,255));
-        textfield1.setForeground(new Color(0,0,0));
-        textfield1.setEnabled(true);
-        textfield1.setFont(new Font("sansserif",0,12));
-        textfield1.setText("");
-        textfield1.setVisible(true);
-
-        textfield10 = new JTextField();
-        textfield10.setBounds(123,223,190,30);
-        textfield10.setBackground(new Color(255,255,255));
-        textfield10.setForeground(new Color(0,0,0));
-        textfield10.setEnabled(true);
-        textfield10.setFont(new Font("sansserif",0,12));
-        textfield10.setText("");
-        textfield10.setVisible(true);
-
-        textfield11 = new JTextField();
-        textfield11.setBounds(123,256,190,30);
-        textfield11.setBackground(new Color(255,255,255));
-        textfield11.setForeground(new Color(0,0,0));
-        textfield11.setEnabled(true);
-        textfield11.setFont(new Font("sansserif",0,12));
-        textfield11.setText("");
-        textfield11.setVisible(true);
-
-        textfield12 = new JTextField();
-        textfield12.setBounds(123,287,190,30);
-        textfield12.setBackground(new Color(255,255,255));
-        textfield12.setForeground(new Color(0,0,0));
-        textfield12.setEnabled(true);
-        textfield12.setFont(new Font("sansserif",0,12));
-        textfield12.setText("");
-        textfield12.setVisible(true);
-
-        textfield2 = new JTextField();
-        textfield2.setBounds(123,146,50,30);
-        textfield2.setBackground(new Color(255,255,255));
-        textfield2.setForeground(new Color(0,0,0));
-        textfield2.setEnabled(true);
-        textfield2.setFont(new Font("sansserif",0,12));
-        textfield2.setText("");
-        textfield2.setVisible(true);
-
-        textfield3 = new JTextField();
-        textfield3.setBounds(181,146,50,30);
-        textfield3.setBackground(new Color(255,255,255));
-        textfield3.setForeground(new Color(0,0,0));
-        textfield3.setEnabled(true);
-        textfield3.setFont(new Font("sansserif",0,12));
-        textfield3.setText("");
-        textfield3.setVisible(true);
-
-        textfield4 = new JTextField();
-        textfield4.setBounds(236,146,90,30);
-        textfield4.setBackground(new Color(255,255,255));
-        textfield4.setForeground(new Color(0,0,0));
-        textfield4.setEnabled(true);
-        textfield4.setFont(new Font("sansserif",0,12));
-        textfield4.setText("");
-        textfield4.setVisible(true);
-
-        textfield5 = new JTextField();
-        textfield5.setBounds(123,186,50,30);
-        textfield5.setBackground(new Color(255,255,255));
-        textfield5.setForeground(new Color(0,0,0));
-        textfield5.setEnabled(true);
-        textfield5.setFont(new Font("sansserif",0,12));
-        textfield5.setText("");
-        textfield5.setVisible(true);
-
-        textfield6 = new JTextField();
-        textfield6.setBounds(182,186,50,30);
-        textfield6.setBackground(new Color(255,255,255));
-        textfield6.setForeground(new Color(0,0,0));
-        textfield6.setEnabled(true);
-        textfield6.setFont(new Font("sansserif",0,12));
-        textfield6.setText("");
-        textfield6.setVisible(true);
-
-        textfield7 = new JTextField();
-        textfield7.setBounds(238,185,90,30);
-        textfield7.setBackground(new Color(255,255,255));
-        textfield7.setForeground(new Color(0,0,0));
-        textfield7.setEnabled(true);
-        textfield7.setFont(new Font("sansserif",0,12));
-        textfield7.setText("");
-        textfield7.setVisible(true);
-
-        textfield8 = new JTextField();
-        textfield8.setBounds(331,146,90,30);
-        textfield8.setBackground(new Color(255,255,255));
-        textfield8.setForeground(new Color(0,0,0));
-        textfield8.setEnabled(true);
-        textfield8.setFont(new Font("sansserif",0,12));
-        textfield8.setText("");
-        textfield8.setVisible(true);
-
-        textfield9 = new JTextField();
-        textfield9.setBounds(332,186,90,30);
-        textfield9.setBackground(new Color(255,255,255));
-        textfield9.setForeground(new Color(0,0,0));
-        textfield9.setEnabled(true);
-        textfield9.setFont(new Font("sansserif",0,12));
-        textfield9.setText("");
-        textfield9.setVisible(true);
-
-        //adding components to contentPane panel
-        contentPane.add(button1);
-        contentPane.add(button2);
-        contentPane.add(combobox1);
-        contentPane.add(label1);
-        contentPane.add(label2);
-        contentPane.add(label3);
-        contentPane.add(label4);
-        contentPane.add(label5);
-        contentPane.add(label6);
-        contentPane.add(label7);
-        contentPane.add(label8);
-        contentPane.add(textfield1);
-        contentPane.add(textfield10);
-        contentPane.add(textfield11);
-        contentPane.add(textfield12);
-        contentPane.add(textfield2);
-        contentPane.add(textfield3);
-        contentPane.add(textfield4);
-        contentPane.add(textfield5);
-        contentPane.add(textfield6);
-        contentPane.add(textfield7);
-        contentPane.add(textfield8);
-        contentPane.add(textfield9);
-
-        //adding panel to JFrame and seting of window position and close operation
+        contentPane.add(biaya);
+        contentPane.add(enter);
+        contentPane.add(id);
+        contentPane.add(textid);
+        contentPane.add(labelpesanan);
+        contentPane.add(labellokakhir);
+        contentPane.add(labellokawal);
+        contentPane.add(labelnamaakhir);
+        contentPane.add(labelnamaawal);
+        contentPane.add(pilihTipeLayanan);
+        contentPane.add(korxawal);
+        contentPane.add(koryawal);
+        contentPane.add(lokAwal);
+        contentPane.add(ketlokawal);
+        contentPane.add(korxakhir);
+        contentPane.add(koryakhir);
+        contentPane.add(lokAkhir);
+        contentPane.add(ketlokakhir);
+        contentPane.add(textnamaawal);
+        contentPane.add(textnamaakhir);
+        contentPane.add(textbiaya);        
+        contentPane.add(tipeLayanan);
+        contentPane.add(pesan);
+        contentPane.add(copyright);
+        contentPane.add(kembali);
+       
         this.add(contentPane);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.pack();
         this.setVisible(true);
     }
+    
+     /**
+     * Method ini digunakan untuk menset jam yang sesuai dengan keadaan sebenarnya (real-time)
+     * 
+     */
+    public void jam_mulai() 
+    {
+       jam.setText(DateFormat.getDateTimeInstance().format(new Date()));
+    } 
 
-     public static void main(String[] args){
-    //  System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
+     public static void main(String[] args)
+     {
+        System.setProperty("swing.defaultlaf", "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        javax.swing.SwingUtilities.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
                 new PesananGUI();
             }
         });

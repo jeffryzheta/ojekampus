@@ -1,12 +1,12 @@
-
+import java.lang.Math;
+import java.util.ArrayList;
 /**
  * Write a description of class Administrasi here.
  * 
  * @author Jeffry Kurniawan Zheta
  * @version (a version number or a date)
  */
-import java.lang.Math;
-import java.util.ArrayList;
+
 public class Administrasi
 {
     // instance variables - replace the example below with your own

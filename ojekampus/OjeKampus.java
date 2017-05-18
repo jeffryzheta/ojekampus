@@ -5,17 +5,7 @@
  */
 public class OjeKampus
 {
-    // instance variables - replace the example below with your own
-    //public static Ojek ojek_rifqy;
-    //public static DatabaseUser ojek_database;
-    //public static Lokasi ojek_lokasi;
-    //public static Pelanggan p_mikoriza;
-    //public static DatabasePesanan p_database;
-    //public static Lokasi per_mikoriza_awal;
-    //public static Lokasi per_mikoriza_akhir;
-    //public static Pesanan pes_mikoriza;
-    //public static Administrasi administrasi;
-    //private TipeLayanan layanan;
+  
 
     public static SistemPengawas sistem; 
     /**

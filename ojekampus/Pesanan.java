@@ -9,7 +9,7 @@ public class Pesanan
 {
     // instance variables - replace the example below with your own
     Ojek pelayan = null;
-    Pelanggan pengguna;
+    static Pelanggan pengguna;
     String pelanggan_awal;
     String pelanggan_akhir;
     double biaya;
@@ -120,7 +120,7 @@ public class Pesanan
      /** Method ini berfungsi untuk mengambil (get) Pelanggan
     * @return pengguna, berfungsi untuk mengembalikan nilai dari pengguna.
     */
-    public Pelanggan getPelanggan()
+    public static Pelanggan getPelanggan()
     {
         return pengguna;
     }

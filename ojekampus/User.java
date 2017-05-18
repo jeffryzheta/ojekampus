@@ -15,15 +15,40 @@ public class User
     protected int id;
     protected String nama;
     protected String telefon; 
-    protected String email;
-    protected Date dob;
+    protected static String email;
+    protected static Date dob;
+    protected static int day, month, year; 
     /**
      * Constructor for objects of class Pelanggan
      */
-    public User (int id, String nama)
+    public User (int id, String nama, String telefon)
     {
         this.id = id;
         this.nama = nama;
+        this.telefon = telefon;
+        this.email=email;
+        this.dob=dob;
+    }
+    
+//      public User (int id, String nama, String telefon, String Email, Date dob)
+//     {
+//         this.id = id;
+//         this.nama = nama;
+//         this.telefon = telefon;
+//         this.email=email;
+//         this.dob=dob;
+//     }
+    
+    /**
+     * Constructor ini me-assign id dan nama pada kelas User
+     * @param id belum digunakan
+     * @param nama belum digunakan
+     * @return 
+     */
+    public User(int id, String nama)
+    {
+        this.id=id;
+        this.nama=nama;
     }
 
     /** Method ini berfungsi untuk mengambil (get) ID pelanggan
@@ -34,7 +59,19 @@ public class User
         return id;        
     }
     
-    public Date getDOB()
+    public int day(){
+        return day;
+    }
+    
+    public int month(){
+        return month;
+    }
+    
+    public int year(){
+        return year;
+    }
+    
+    public static Date getDOB()
     {
         return dob;
     }
@@ -48,13 +85,13 @@ public class User
     }
    
     
-    public boolean setTelefon (String telefon)
+    public static boolean setTelefon (String telefon)
     {
         Pattern pola = Pattern.compile("\\d{1,12}");
         Matcher sama = pola.matcher(telefon);
         if(sama.matches())
         {
-            this.telefon = telefon;
+            telefon = telefon;
             return true;
         }
         else
@@ -63,13 +100,14 @@ public class User
         }
     }
     
-    public boolean setEmail(String email)
+    public static boolean setEmail(String email)
     {
+     
         Pattern pola = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
         Matcher sama = pola.matcher(email);
         if(sama.matches())
         {
-            this.email = email;
+            email = email;
             return true;
         }
         else
@@ -78,9 +116,19 @@ public class User
         }
     }
     
-    public void setDOB (int day, int month, int year)
+    public static void setDOBint (int day, int month, int year)
     {
-        dob =  new GregorianCalendar(year, month, day).getTime();
+        //dob =  new GregorianCalendar(year, month, day).getTime();
+        day=day;
+        month=month;
+        year=year;
+    }
+    
+    public static void setDOB (int day, int month, int year)
+    {
+         GregorianCalendar calendar;
+        calendar = new GregorianCalendar(year,month-1, day);
+        dob = calendar.getTime();
     }
     
     /** Method ini berfungsi untuk menentukan (set) id pelanggan
@@ -104,7 +152,7 @@ public class User
         return telefon;
     }
     
-    public String getEmail()
+    public static String getEmail()
     {
         return email;
     }

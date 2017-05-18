@@ -13,7 +13,10 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.border.Border;
 import javax.swing.*;
-
+import java.awt.event.FocusListener;
+import java.awt.event.FocusEvent;
+import java.util.Date;
+import java.text.DateFormat;
 
 public class TungguGUI extends JFrame {
 
@@ -31,11 +34,54 @@ public class TungguGUI extends JFrame {
     private boolean diproses = false;
     private boolean ada = false;
     private Pelanggan nPelanggan;
+    private JLabel copyright;
+    private JLabel jam;
+    private JButton kembali;
+
     //Constructor 
     public TungguGUI(){
 
         this.setTitle("GUI_project");
         this.setSize(500,400);
+        
+        kembali = new JButton();
+        kembali.setBounds(5,5,90,30);
+        kembali.setBackground(new Color(255,255,255));
+        kembali.setEnabled(true);
+        kembali.setFont(new Font("Raleway",0,12));
+        kembali.setText("Kembali");
+        kembali.setActionCommand("Kembali");
+        kembali.setVisible(true);
+        kembali.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent klik) 
+            {
+                 dispose();
+                 new PesananGUI();
+            }
+        });
+        
+        jam = new JLabel();
+        jam.setHorizontalAlignment(JLabel.RIGHT);
+        jam.setFont(UIManager.getFont("Raleway"));
+        jam.setBounds(90,-190,400,400);
+        jam.setVisible(true);
+        jam_mulai();
+        add(jam);
+            
+        Timer hitung = new Timer(500, new ActionListener() 
+         {
+           @Override
+           public void actionPerformed(ActionEvent e) 
+             {
+                jam_mulai();
+             }
+         });
+   
+        hitung.setRepeats(true);
+        hitung.setCoalesce(true);
+        hitung.setInitialDelay(0);
+        hitung.start();
         //menu generate method
         generateMenu();
         this.setJMenuBar(menuBar);
@@ -43,15 +89,15 @@ public class TungguGUI extends JFrame {
         //pane with null layout
         JPanel contentPane = new JPanel(null);
         contentPane.setPreferredSize(new Dimension(500,400));
-        contentPane.setBackground(new Color(192,192,192));
+        contentPane.setBackground(new Color(204,204,255));
 
 
         button1 = new JButton();
         button1.setBounds(300,80,90,40);
-        button1.setBackground(new Color(214,217,223));
+        button1.setBackground(new Color(153,255,153));
         button1.setForeground(new Color(0,0,0));
         button1.setEnabled(true);
-        button1.setFont(new Font("sansserif",0,12));
+        button1.setFont(new Font("timesnewroman",0,12));
         button1.setText("Enter");
         button1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -59,7 +105,8 @@ public class TungguGUI extends JFrame {
                 int id = Integer.parseInt(inID);
                 nPelanggan = DatabaseUser.getUserPelanggan(id);
                 if(nPelanggan != null){
-                    JOptionPane.showMessageDialog(null, "Pelanggan Ditemukan");
+                    JOptionPane myIO = new JOptionPane();
+                    myIO.showMessageDialog(null, "Pelanggan Ditemukan");
                     if(DatabasePesanan.getPesanan(nPelanggan).getStatusDiproses() == true){
                         if(DatabasePesanan.getPesanan(nPelanggan).getStatusSelesai() == true){
                             textfield2.setText("Pesanan Selesai");
@@ -71,7 +118,7 @@ public class TungguGUI extends JFrame {
                         }
                     }
                     else{
-                        textfield2.setText("Pesanan Belum Ada");
+                        textfield2.setText("Pesanan Belum proses");
                     }
                 }
             }
@@ -80,18 +127,26 @@ public class TungguGUI extends JFrame {
 
         button2 = new JButton();
         button2.setBounds(135,255,90,40);
-        button2.setBackground(new Color(214,217,223));
+        button2.setBackground(new Color(153,255,153));
         button2.setForeground(new Color(0,0,0));
         button2.setEnabled(true);
-        button2.setFont(new Font("sansserif",0,12));
+        button2.setFont(new Font("timesnewroman",0,12));
         button2.setText("Accept");
         button2.setVisible(true);
+         button2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if(diproses == true){
+                    Administrasi.pesananDibatalkan(nPelanggan);
+                }
+            }
+        });
+        
         button3 = new JButton();
         button3.setBounds(260,255,90,40);
-        button3.setBackground(new Color(214,217,223));
+        button3.setBackground(new Color(153,255,153));
         button3.setForeground(new Color(0,0,0));
         button3.setEnabled(true);
-        button3.setFont(new Font("sansserif",0,12));
+        button3.setFont(new Font("timesnewroman",0,12));
         button3.setText("Decline");
         button3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -104,10 +159,10 @@ public class TungguGUI extends JFrame {
 
         button4 = new JButton();
         button4.setBounds(200,315,90,40);
-        button4.setBackground(new Color(214,217,223));
+        button4.setBackground(new Color(153,255,153));
         button4.setForeground(new Color(0,0,0));
         button4.setEnabled(true);
-        button4.setFont(new Font("sansserif",0,12));
+        button4.setFont(new Font("timesnewroman",0,12));
         button4.setText("Delete");
         button3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -127,7 +182,7 @@ public class TungguGUI extends JFrame {
         label1.setBackground(new Color(214,217,223));
         label1.setForeground(new Color(0,0,0));
         label1.setEnabled(true);
-        label1.setFont(new Font("SansSerif",0,20));
+        label1.setFont(new Font("timesnewroman",0,20));
         label1.setText("Customer Menunggu");
         label1.setVisible(true);
 
@@ -136,7 +191,7 @@ public class TungguGUI extends JFrame {
         label2.setBackground(new Color(214,217,223));
         label2.setForeground(new Color(0,0,0));
         label2.setEnabled(true);
-        label2.setFont(new Font("SansSerif",0,14));
+        label2.setFont(new Font("timesnewroman",0,14));
         label2.setText("ID");
         label2.setVisible(true);
 
@@ -145,7 +200,7 @@ public class TungguGUI extends JFrame {
         label3.setBackground(new Color(214,217,223));
         label3.setForeground(new Color(0,0,0));
         label3.setEnabled(true);
-        label3.setFont(new Font("sansserif",0,12));
+        label3.setFont(new Font("timesnewroman",0,12));
         label3.setText(":");
         label3.setVisible(true);
 
@@ -154,7 +209,7 @@ public class TungguGUI extends JFrame {
         label5.setBackground(new Color(214,217,223));
         label5.setForeground(new Color(0,0,0));
         label5.setEnabled(true);
-        label5.setFont(new Font("SansSerif",0,14));
+        label5.setFont(new Font("timesnewroman",0,14));
         label5.setText("Informasi Pesanan");
         label5.setVisible(true);
 
@@ -163,18 +218,55 @@ public class TungguGUI extends JFrame {
         textfield1.setBackground(new Color(255,255,255));
         textfield1.setForeground(new Color(0,0,0));
         textfield1.setEnabled(true);
-        textfield1.setFont(new Font("sansserif",0,12));
+        textfield1.setFont(new Font("timesnewroman",0,12));
         textfield1.setText("No ID");
         textfield1.setVisible(true);
+        textfield1.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                textfield1.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
 
         textfield2 = new JTextField();
         textfield2.setBounds(165,200,150,40);
         textfield2.setBackground(new Color(255,255,255));
         textfield2.setForeground(new Color(0,0,0));
         textfield2.setEnabled(true);
-        textfield2.setFont(new Font("sansserif",0,12));
+        textfield2.setFont(new Font("timesnewroman",0,12));
         textfield2.setText("Status");
         textfield2.setVisible(true);
+        textfield2.addFocusListener(new FocusListener()
+        {
+            @Override
+            public void focusGained(FocusEvent klik)
+            {
+                textfield2.setText("");
+            }
+            
+            @Override
+            public void focusLost(FocusEvent klik)
+            {
+                
+            }
+        });
+        
+        copyright = new JLabel();
+        copyright.setBounds(158,360,200,35);
+        copyright.setBackground(new Color(214,217,223));
+        copyright.setEnabled(true);
+        copyright.setFont(new Font("Raleway",0,12));
+        copyright.setText("Copyright @2017 - Jeffry K Zheta");
+        copyright.setVisible(true);
+        
 
         //adding components to contentPane panel
         contentPane.add(button1);
@@ -187,14 +279,24 @@ public class TungguGUI extends JFrame {
         contentPane.add(label5);
         contentPane.add(textfield1);
         contentPane.add(textfield2);
-
+        contentPane.add(copyright);
+        contentPane.add(kembali);
         //adding panel to JFrame and seting of window position and close operation
         this.add(contentPane);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.pack();
         this.setVisible(true);
     }
+    
+     /**
+     * Method ini digunakan untuk menset jam yang sesuai dengan keadaan sebenarnya (real-time)
+     * 
+     */
+    public void jam_mulai() 
+    {
+       jam.setText(DateFormat.getDateTimeInstance().format(new Date()));
+    } 
 
     //method for generate menu
     public void generateMenu(){
